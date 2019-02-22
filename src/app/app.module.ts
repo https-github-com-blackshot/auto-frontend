@@ -23,12 +23,14 @@ import {
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import {AuthComponent} from './auth/auth.component';
+import {AuthService} from './auth/auth.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     FormsModule,
-    HttpModule,
+    HttpModule, HttpClientModule,
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
@@ -42,7 +44,7 @@ import {AuthComponent} from './auth/auth.component';
       AuthComponent
 
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

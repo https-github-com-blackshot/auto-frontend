@@ -1,7 +1,6 @@
-import {NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
 import {ComponentsModule} from '../components/components.module';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from '../app.routing';
@@ -20,14 +19,15 @@ import { HttpModule } from '@angular/http';
 @NgModule({
     imports: [
         CommonModule,
+        HttpClientModule,
         AuthRoutingModule,
-        FormsModule,
-        HttpClientModule
+        FormsModule
     ],
     declarations: [
         AuthFormComponent
     ],
     providers: [AuthService],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AuthModule {
 
