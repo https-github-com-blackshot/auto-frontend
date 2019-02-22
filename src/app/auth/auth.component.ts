@@ -29,6 +29,10 @@ export class AuthComponent implements OnInit {
         this._route.navigateByUrl('dashboard');
     }
 
+    if (this.userData.password === '123' && this.userData.username === 'alikhan.m'){
+      this._route.navigateByUrl('dashboard');
+    }
+
     // this._authService.getUserByUsernameAndPassword(this.userData.username, this.userData.password).subscribe((res) => {
     //   if (res !== null){
     //     this._route.navigateByUrl('dashboard');
