@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule, Routes} from '@angular/router';
-import {AdminLayoutComponent} from '../layouts/admin-layout/admin-layout.component';
+import {AdminLayoutComponent} from '../../template-widgets/layouts/admin-layout/admin-layout.component';
 import {AuthComponent} from './auth.component';
 import {AuthFormComponent} from './auth-form/auth-form.component';
 

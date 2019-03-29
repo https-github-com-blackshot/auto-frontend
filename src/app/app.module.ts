@@ -10,20 +10,20 @@ import { ComponentsModule } from './components/components.module';
 
 import { AppComponent } from './app.component';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { TableListComponent } from './table-list/table-list.component';
-import { TypographyComponent } from './typography/typography.component';
-import { IconsComponent } from './icons/icons.component';
-import { MapsComponent } from './maps/maps.component';
-import { NotificationsComponent } from './notifications/notifications.component';
-import { UpgradeComponent } from './upgrade/upgrade.component';
+import { DashboardComponent } from './template-widgets/dashboard/dashboard.component';
+import { UserProfileComponent } from './template-widgets/user-profile/user-profile.component';
+import { TableListComponent } from './template-widgets/table-list/table-list.component';
+import { TypographyComponent } from './template-widgets/typography/typography.component';
+import { IconsComponent } from './template-widgets/icons/icons.component';
+import { MapsComponent } from './template-widgets/maps/maps.component';
+import { NotificationsComponent } from './template-widgets/notifications/notifications.component';
+import { UpgradeComponent } from './template-widgets/upgrade/upgrade.component';
 import {
   AgmCoreModule
 } from '@agm/core';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import {AuthComponent} from './auth/auth.component';
-import {AuthService} from './auth/auth.service';
+import { AdminLayoutComponent } from './template-widgets/layouts/admin-layout/admin-layout.component';
+import {AuthComponent} from './feauters/auth/auth.component';
+import {AuthService} from './feauters/auth/auth.service';
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
