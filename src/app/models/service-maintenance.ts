@@ -5,8 +5,8 @@ export class ServiceMaintenance {
         public name?: string,
         public description?: string,
         public address?: string,
-        public phone_number?: string,
-        public rating_id?: number) {}
+        public phoneNumber?: string,
+        public ratingId?: number) {}
 
 
 }
