@@ -4,7 +4,7 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './template-widgets/layouts/admin-layout/admin-layout.component';
-import {AuthComponent} from './feauters/auth/auth.component';
+import {AuthComponent} from './features/auth/auth.component';
 
 const routes: Routes =[
   {
@@ -25,7 +25,7 @@ const routes: Routes =[
       children: [
           {
             path: '',
-            loadChildren: './auth/auth.module#AuthModule'
+            loadChildren: './features/auth/auth.module#AuthModule'
           }
       ]
     }

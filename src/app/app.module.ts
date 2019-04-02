@@ -22,8 +22,8 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './template-widgets/layouts/admin-layout/admin-layout.component';
-import {AuthComponent} from './feauters/auth/auth.component';
-import {AuthService} from './feauters/auth/auth.service';
+import {AuthComponent} from './features/auth/auth.component';
+import {AuthService} from './features/auth/auth.service';
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
@@ -41,7 +41,7 @@ import {HttpClientModule} from '@angular/common/http';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-      AuthComponent
+    AuthComponent
 
   ],
   providers: [AuthService],

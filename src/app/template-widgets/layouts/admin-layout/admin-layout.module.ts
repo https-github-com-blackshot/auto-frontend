@@ -20,11 +20,13 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
+import {AdminModule} from '../../../features/admin/admin.module';
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
+    AdminModule,
     MatButtonModule,
     MatRippleModule,
     MatFormFieldModule,

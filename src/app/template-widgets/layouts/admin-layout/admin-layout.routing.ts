@@ -8,7 +8,9 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
-import {AuthComponent} from '../../../feauters/auth/auth.component';
+import {AuthComponent} from '../../../features/auth/auth.component';
+import {AdminComponent} from '../../../features/admin/admin.component';
+import {AdminLayoutComponent} from './admin-layout.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -53,6 +55,15 @@ export const AdminLayoutRoutes: Routes = [
     //         component: UpgradeComponent
     //     }]
     // }
+    {
+        path: 'admin',
+        component: AdminComponent,
+        children: [
+            {
+                path: '',
+                loadChildren: './../../../features/admin/admin.module#AdminModule'
+            }]
+    },
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
