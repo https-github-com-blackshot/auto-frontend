@@ -11,6 +11,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import {AuthComponent} from '../../../features/auth/auth.component';
 import {AdminComponent} from '../../../features/admin/admin.component';
 import {AdminLayoutComponent} from './admin-layout.component';
+import {ServiceMaintenanceComponent} from '../../../features/service-maintenance/service-maintenance.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -62,6 +63,15 @@ export const AdminLayoutRoutes: Routes = [
             {
                 path: '',
                 loadChildren: './../../../features/admin/admin.module#AdminModule'
+            }]
+    },
+    {
+        path: 'service_maintenance',
+        component: ServiceMaintenanceComponent,
+        children: [
+            {
+                path: '',
+                loadChildren: './../../../features/service-maintenance/service-maintenance.module#ServiceMaintenanceModule'
             }]
     },
     { path: 'dashboard',      component: DashboardComponent },

@@ -21,12 +21,14 @@ import {
   MatSelectModule
 } from '@angular/material';
 import {AdminModule} from '../../../features/admin/admin.module';
+import {ServiceMaintenanceModule} from '../../../features/service-maintenance/service-maintenance.module';
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
     AdminModule,
+    ServiceMaintenanceModule,
     MatButtonModule,
     MatRippleModule,
     MatFormFieldModule,

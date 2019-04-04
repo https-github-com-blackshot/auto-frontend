@@ -4,9 +4,7 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Users} from '../../models/users';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class AdminService {
 
     private readonly GET_ALL_USERS = 'http://localhost:8080/core/users/read';
