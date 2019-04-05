@@ -5,7 +5,16 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {AdminService} from './admin.service';
 import {AdminRoutingModule} from './admin-routing.module';
-import {MatButtonModule, MatDialogModule, MatIconModule, MatTabsModule} from '@angular/material';
+import {
+    DateAdapter,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule, MatNativeDateModule,
+    MatTabsModule
+} from '@angular/material';
 import { UsersComponent } from './components/users/users.component';
 import { RolesComponent } from './components/roles/roles.component';
 import { RightsComponent } from './components/rights/rights.component';
@@ -21,7 +30,11 @@ import { UserModalComponent } from './components/users/user-modal/user-modal.com
       MatTabsModule,
       MatButtonModule,
       MatIconModule,
-      MatDialogModule
+      MatDialogModule,
+      MatInputModule,
+      MatFormFieldModule,
+      MatDatepickerModule,
+      MatNativeDateModule
   ],
   declarations: [AdminComponent, UsersComponent, RolesComponent, RightsComponent, UserModalComponent],
   providers: [AdminService],
