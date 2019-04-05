@@ -7,6 +7,7 @@ import { ServiceMaintenanceComponent } from './service-maintenance.component';
 import {ServiceMaintenanceService} from './service-maintenance.service';
 import {ServiceMaintenanceRoutingModule} from './service-maintenance-routing.module';
 import {MatButtonModule, MatCardModule} from '@angular/material';
+import {ServiceMaintenanceDetailComponent} from './components/service-maintenance-detail/service-maintenance-detail.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import {MatButtonModule, MatCardModule} from '@angular/material';
     MatButtonModule,
     MatCardModule
   ],
-  declarations: [ServiceMaintenanceComponent],
+  declarations: [ServiceMaintenanceComponent, ServiceMaintenanceDetailComponent],
   providers: [ServiceMaintenanceService],
   entryComponents: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

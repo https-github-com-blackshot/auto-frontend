@@ -2,9 +2,11 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {ServiceMaintenanceComponent} from './service-maintenance.component';
+import {ServiceMaintenanceDetailComponent} from './components/service-maintenance-detail/service-maintenance-detail.component';
 
 export const routes: Routes = [
     { path: '', component: ServiceMaintenanceComponent },
+    { path: '/:id', component: ServiceMaintenanceDetailComponent },
 ];
 
 @NgModule({
