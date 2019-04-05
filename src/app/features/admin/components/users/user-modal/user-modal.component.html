@@ -1,11 +1,33 @@
-<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<h1 mat-dialog-title>{{data.title}}</h1>
 <div mat-dialog-content>
-  <p>What's your favorite animal?</p>
+  <mat-form-field class="outline">
+    <input placeholder="Имя пользователя" type="text" matInput [(ngModel)]="data.user.username">
+  </mat-form-field>
   <mat-form-field>
-    <input matInput [(ngModel)]="data.animal">
+    <input placeholder="Пароль" type="password" matInput [(ngModel)]="data.user.password">
+  </mat-form-field>
+  <mat-form-field>
+    <input placeholder="Имя" type="text" matInput [(ngModel)]="data.user.firstName">
+  </mat-form-field>
+  <mat-form-field>
+    <input placeholder="Фамилия" type="text" matInput [(ngModel)]="data.user.lastName">
+  </mat-form-field>
+  <mat-form-field>
+    <input placeholder="Отчество" type="text" matInput [(ngModel)]="data.user.middleName">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="data.user.birthdate" placeholder="Дата рождения">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <input placeholder="Почта" type="email" matInput [(ngModel)]="data.user.email">
+  </mat-form-field>
+  <mat-form-field>
+    <input placeholder="Телефон" type="text" matInput [(ngModel)]="data.user.phoneNumber">
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+  <button mat-button (click)="onNoClick()">Закрыть</button>
+  <button mat-button [mat-dialog-close]="data.user" cdkFocusInitial>Сохранить</button>
 </div>

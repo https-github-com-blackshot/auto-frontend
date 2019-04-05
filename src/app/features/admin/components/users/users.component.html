@@ -16,24 +16,24 @@
                                 <th>Номер телефона</th>
                                 <th>Почта</th>
                                 <th>
-                                    <button (click)="openDialog()" mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+                                    <button (click)="addNewUser()" mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
                                         <mat-icon>person_add</mat-icon>
                                     </button>
                                 </th>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let user of users; let i = index">
-                                    <td>{{i}}</td>
+                                    <td>{{i+1}}</td>
                                     <td>{{user.lastName}} {{user.firstName}} {{user.middleName}}</td>
                                     <td>{{user.username}}</td>
                                     <td>{{user.phoneNumber}}</td>
                                     <td>{{user.email}}</td>
                                     <td>
-                                        <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+                                        <button (click)="editUser(user)" mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
                                             <mat-icon>edit</mat-icon>
                                         </button>
 
-                                        <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+                                        <button (click)="deleteUser(user.id)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
                                             <mat-icon>delete</mat-icon>
                                         </button>
                                     </td>
