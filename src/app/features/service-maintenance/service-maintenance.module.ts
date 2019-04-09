@@ -15,8 +15,7 @@ import {ServiceMaintenanceDetailComponent} from './components/service-maintenanc
     FormsModule,
     HttpClientModule,
     ServiceMaintenanceRoutingModule,
-    MatButtonModule,
-    MatCardModule
+    MatButtonModule
   ],
   declarations: [ServiceMaintenanceComponent, ServiceMaintenanceDetailComponent],
   providers: [ServiceMaintenanceService],
