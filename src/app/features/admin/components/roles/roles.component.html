@@ -1,3 +1,44 @@
-<p>
-  roles works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header card-header-danger">
+          <h4 class="card-title">Роли</h4>
+          <p class="card-category">Here is a subtitle for this table</p>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+              <th>№</th>
+              <th>Код</th>
+              <th>Название</th>
+              <th>
+                <button (click)="addNewRole()" mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+                  <mat-icon>person_add</mat-icon>
+                </button>
+              </th>
+              </thead>
+              <tbody>
+              <tr *ngFor="let role of roles; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{role.code}}</td>
+                <td>{{role.nameRu}}</td>
+                <td>
+                  <button (click)="editRole(user)" mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+
+                  <button (click)="deleteRole(user.id)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

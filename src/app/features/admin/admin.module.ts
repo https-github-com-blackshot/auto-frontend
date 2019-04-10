@@ -19,6 +19,7 @@ import { UsersComponent } from './components/users/users.component';
 import { RolesComponent } from './components/roles/roles.component';
 import { RightsComponent } from './components/rights/rights.component';
 import { UserModalComponent } from './components/users/user-modal/user-modal.component';
+import { RoleModalComponent } from './components/roles/role-modal/role-modal.component';
 
 @NgModule({
   imports: [
@@ -36,9 +37,9 @@ import { UserModalComponent } from './components/users/user-modal/user-modal.com
       MatDatepickerModule,
       MatNativeDateModule
   ],
-  declarations: [AdminComponent, UsersComponent, RolesComponent, RightsComponent, UserModalComponent],
+  declarations: [AdminComponent, UsersComponent, RolesComponent, RightsComponent, UserModalComponent, RoleModalComponent],
   providers: [AdminService],
-  entryComponents: [UserModalComponent],
+  entryComponents: [UserModalComponent, RoleModalComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AdminModule { }
