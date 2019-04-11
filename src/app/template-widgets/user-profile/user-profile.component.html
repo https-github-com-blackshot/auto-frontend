@@ -8,7 +8,7 @@
                       <p class="card-category">Complete your profile</p>
                   </div>
                   <div class="card-body">
-                      <form>
+                      <form *ngFor="let user = user; let i = index">
                           <div class="row">
                               <div class="col-md-5">
                                 <mat-form-field class="example-full-width">
@@ -17,24 +17,24 @@
                               </div>
                               <div class="col-md-3">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Username">
+                                    <input matInput placeholder="Username" value={{user.username}}>
                                   </mat-form-field>
                               </div>
                               <div class="col-md-4">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Email address" type="email">
+                                    <input matInput placeholder="Email address" type="email" value={{user.email}}>
                                   </mat-form-field>
                               </div>
                           </div>
                           <div class="row">
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Fist Name" type="text">
+                                  <input matInput placeholder="Fist Name" type="text" value={{user.firstName}}>
                                 </mat-form-field>
                               </div>
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Last Name" type="text">
+                                  <input matInput placeholder="Last Name" type="text" value={{user.lastName}}>
                                 </mat-form-field>
                               </div>
                           </div>
@@ -91,12 +91,15 @@
                       </a>
                   </div>
                   <div class="card-body">
-                      <h6 class="card-category text-gray">CEO / Co-Founder</h6>
-                      <h4 class="card-title">Alec Thompson</h4>
+                      <h6 class="card-category text-gray">Моторщик</h6>
+                      <h4 class="card-title">Олег Михайлович</h4>
                       <p class="card-description">
-                          Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                          Любовь не заслужишь ни делом, ни словом,
+                          прощай, человечек, твой двигатель сломан,
+                          всегда не в себе, но сегодня притих:
+                          на кнопочку жмёшь, а моторчик — пых-пых.
                       </p>
-                      <a href="#pablo" class="btn btn-danger btn-round">Follow</a>
+                      <a href="#pablo" class="btn btn-danger btn-round">Редактировать</a>
                   </div>
               </div>
           </div>
