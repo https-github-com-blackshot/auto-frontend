@@ -34,7 +34,7 @@ export class ServiceMaintenanceComponent implements OnInit, OnDestroy {
       this._serviceMaintenanceService.getAllUsers().pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
         this.users = res;
         console.log('users', this.users);
-      })
+      });
     }
 
 }

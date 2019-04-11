@@ -8,7 +8,7 @@
                       <p class="card-category">Complete your profile</p>
                   </div>
                   <div class="card-body">
-                      <form *ngFor="let user = user; let i = index">
+                      <form *ngIf="user">
                           <div class="row">
                               <div class="col-md-5">
                                 <mat-form-field class="example-full-width">
@@ -17,24 +17,24 @@
                               </div>
                               <div class="col-md-3">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Username" value={{user.username}}>
+                                    <input matInput placeholder="Username" [(ngModel)]="user.username" name="username">
                                   </mat-form-field>
                               </div>
                               <div class="col-md-4">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Email address" type="email" value={{user.email}}>
+                                    <input matInput placeholder="Email address" type="email" [(ngModel)]="user.email" name="email">
                                   </mat-form-field>
                               </div>
                           </div>
                           <div class="row">
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Fist Name" type="text" value={{user.firstName}}>
+                                  <input matInput placeholder="Fist Name" type="text" [(ngModel)]="user.firstName" name="firstName">
                                 </mat-form-field>
                               </div>
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Last Name" type="text" value={{user.lastName}}>
+                                  <input matInput placeholder="Last Name" type="text" [(ngModel)]="user.lastName" name="lastName">
                                 </mat-form-field>
                               </div>
                           </div>
