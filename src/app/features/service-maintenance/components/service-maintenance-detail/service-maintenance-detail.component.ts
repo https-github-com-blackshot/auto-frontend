@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from 'rxjs';
 import {ServiceMaintenanceService} from '../../service-maintenance.service';
 import {ActivatedRoute} from '@angular/router';
@@ -12,7 +12,8 @@ import {ServiceMaintenance} from '../../../../models/service-maintenance';
 })
 export class ServiceMaintenanceDetailComponent implements OnInit, OnDestroy {
 
-    serviceMaintenanceId: number;
+    @Input() serviceMaintenance: ServiceMaintenance;
+
     serviceMaintenance: ServiceMaintenance;
 
     private _unsubscribeAll: Subject<any>;
@@ -26,9 +27,9 @@ export class ServiceMaintenanceDetailComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
       this.serviceMaintenance = new ServiceMaintenance();
+      this.loadServiceMaintenance();
       this._route.params.subscribe(params => {
-        this.serviceMaintenanceId = params['id'];
-        this.loadServiceMaintenance();
+        // this.serviceMaintenanceId = params['id'];
       });
     }
 
@@ -41,6 +42,7 @@ export class ServiceMaintenanceDetailComponent implements OnInit, OnDestroy {
       this._serviceMaintenanceService.getServiceMaintenance(this.serviceMaintenanceId)
           .pipe(takeUntil(this._unsubscribeAll)).subscribe((res) => {
             this.serviceMaintenance = res;
+            console.log(this.serviceMaintenance);
       });
     }
 
