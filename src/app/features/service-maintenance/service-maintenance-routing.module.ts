@@ -6,7 +6,7 @@ import {ServiceMaintenanceDetailComponent} from './components/service-maintenanc
 
 export const routes: Routes = [
     { path: '', component: ServiceMaintenanceComponent },
-    { path: '/:id', component: ServiceMaintenanceDetailComponent },
+    { path: 'detail/:id', component: ServiceMaintenanceDetailComponent },
 ];
 
 @NgModule({

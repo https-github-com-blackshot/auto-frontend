@@ -1,107 +1,33 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="/service-maintenance.component.scss">
 <div class="main-content">
-<div class="w3-container">
-
-  <div class="w3-card-4" style="width:100%">
-    <header class="w3-container w3-light-grey">
-      <h3>СТО "Алматы Сервис"</h3>
-    </header>
     <div class="w3-container">
 
-      <div class="rating">
-        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-      </div>
+        <button (click)="addNewService()" mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+            <mat-icon>add</mat-icon>
+            Добавить СТО
+        </button>
+
+        <div *ngFor="let s of serviceMaintenanceList" class="w3-card-4" style="width:100%">
+            <header class="w3-container w3-light-grey">
+                <h3>{{s.name}}</h3>
+            </header>
+            <div class="w3-container">
+
+                <div class="rating">
+                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                </div>
 
 
-      <img src="https://pp.userapi.com/c638018/v638018279/56510/iHL2fii8lMk.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+                <img src="https://pp.userapi.com/c638018/v638018279/56510/iHL2fii8lMk.jpg" alt="Avatar"
+                     class="w3-left w3-circle w3-margin-right" style="width:60px">
 
-      <p>850 слов на английском языке, выучив которые, вы будете свободно говорить!
-        В HD качестве.</p><br>
-      <p>Место работы: Жандосова 34а</p>
+                <p>{{s.name}}</p><br>
+                <p>Место работы: Жандосова 34а</p>
+            </div>
+            <button class="w3-button w3-block w3-dark-grey">Посмотреть полную ниформацию</button>
+        </div>
+
+
     </div>
-    <button class="w3-button w3-block w3-dark-grey">Қосымша ақпарат</button>
-  </div><br>
-
-  <div class="w3-card-4" style="width:100%">
-    <header class="w3-container w3-light-grey">
-      <h3>СТО "Алматы Сервис"</h3>
-    </header>
-    <div class="w3-container">
-
-      <div class="rating">
-        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-      </div>
-
-
-      <img src="https://pp.userapi.com/c638018/v638018279/56510/iHL2fii8lMk.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-
-      <p>850 слов на английском языке, выучив которые, вы будете свободно говорить!
-        В HD качестве.</p><br>
-      <p>Место работы: Жандосова 34а</p>
-    </div>
-    <button class="w3-button w3-block w3-dark-grey">Қосымша ақпарат</button>
-  </div><br>
-
-  <div class="w3-card-4" style="width:100%">
-    <header class="w3-container w3-light-grey">
-      <h3>СТО "Алматы Сервис"</h3>
-    </header>
-    <div class="w3-container">
-
-      <div class="rating">
-        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-      </div>
-
-
-      <img src="https://pp.userapi.com/c638018/v638018279/56510/iHL2fii8lMk.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-
-      <p>850 слов на английском языке, выучив которые, вы будете свободно говорить!
-        В HD качестве.</p><br>
-      <p>Место работы: Жандосова 34а</p>
-    </div>
-    <button class="w3-button w3-block w3-dark-grey">Қосымша ақпарат</button>
-  </div><br>
-
-  <div class="w3-card-4" style="width:100%">
-    <header class="w3-container w3-light-grey">
-      <h3>СТО "Алматы Сервис"</h3>
-    </header>
-    <div class="w3-container">
-
-      <div class="rating">
-        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-      </div>
-
-
-      <img src="https://pp.userapi.com/c638018/v638018279/56510/iHL2fii8lMk.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-
-      <p>850 слов на английском языке, выучив которые, вы будете свободно говорить!
-        В HD качестве.</p><br>
-      <p>Место работы: Жандосова 34а</p>
-    </div>
-    <button class="w3-button w3-block w3-dark-grey">Қосымша ақпарат</button>
-  </div><br>
-
-  <div class="w3-card-4" style="width:100%">
-    <header class="w3-container w3-light-grey">
-      <h3>СТО "Алматы Сервис"</h3>
-    </header>
-    <div class="w3-container">
-
-      <div class="rating">
-        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-      </div>
-
-
-      <img src="https://pp.userapi.com/c638018/v638018279/56510/iHL2fii8lMk.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-
-      <p>850 слов на английском языке, выучив которые, вы будете свободно говорить!
-        В HD качестве.</p><br>
-      <p>Место работы: Жандосова 34а</p>
-    </div>
-    <button class="w3-button w3-block w3-dark-grey">Қосымша ақпарат</button>
-  </div><br>
-
-</div>
 </div>

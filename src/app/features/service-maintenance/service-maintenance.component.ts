@@ -3,6 +3,9 @@ import {Subject} from 'rxjs/index';
 import {ServiceMaintenanceService} from './service-maintenance.service';
 import {takeUntil} from 'rxjs/internal/operators';
 import {Users} from '../../models/users';
+import {ServiceMaintenance} from '../../models/service-maintenance';
+import {RouterScroller} from '@angular/router/src/router_scroller';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-service-maintenance',
@@ -11,12 +14,13 @@ import {Users} from '../../models/users';
 })
 export class ServiceMaintenanceComponent implements OnInit, OnDestroy {
 
-    users: Array<Users> = [];
+    serviceMaintenanceList: Array<ServiceMaintenance> = [];
 
     private _unsubscribeAll: Subject<any>;
 
     constructor(
-        private _serviceMaintenanceService: ServiceMaintenanceService
+        private _serviceMaintenanceService: ServiceMaintenanceService,
+        private _router: Router
     ) {
       this._unsubscribeAll = new Subject();
     }
@@ -31,10 +35,14 @@ export class ServiceMaintenanceComponent implements OnInit, OnDestroy {
     }
 
     loadUsers(): void {
-      this._serviceMaintenanceService.getAllUsers().pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-        this.users = res;
-        console.log('users', this.users);
+      this._serviceMaintenanceService.getAllServiceMaintenance().pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+        this.serviceMaintenanceList = res;
+        console.log('serviceMaintenanceList', this.serviceMaintenanceList);
       });
+    }
+
+    addNewService(): void {
+        this._router.navigateByUrl('/service_maintenance/detail/' + null);
     }
 
 }
