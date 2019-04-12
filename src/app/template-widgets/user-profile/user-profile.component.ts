@@ -8,7 +8,6 @@ import {Subject} from 'rxjs/index';
 import {UserProfileService} from './user-profile.service';
 import {UserModalComponent} from '../../features/admin/components/users/user-modal/user-modal.component';
 import {ServiceBook} from '../../models/service-book';
-import * as consoLe from 'console';
 
 @Component({
   selector: 'app-user-profile',
@@ -34,6 +33,7 @@ export class UserProfileComponent implements OnInit , OnDestroy {
 
   ngOnInit() {
       this.loadUsers();
+      this.loadServiceBook();
   }
 
     ngOnDestroy() {

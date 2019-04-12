@@ -116,11 +116,11 @@
                                     </th>
                                     </thead>
                                     <tbody>
-                                    <tr *ngFor="let serviceBook of serviceBooks; let i = index">
+                                    <tr *ngFor="let service of serviceBook; let i = index">
                                         <td>{{i+1}}</td>
-                                        <td>{{serviceBook.name}}  </td>
-                                        <td>{{serviceBook.code}}</td>
-                                        <td>{{serviceBook.user_id.name}}</td>
+                                        <td>{{service.name}}  </td>
+                                        <td>{{service.code}}</td>
+                                        <td>{{service.user_id.name}}</td>
                                         <td>{{user.email}}</td>
                                         <td>
                                         </td>
