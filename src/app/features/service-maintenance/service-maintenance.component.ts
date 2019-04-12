@@ -42,7 +42,7 @@ export class ServiceMaintenanceComponent implements OnInit, OnDestroy {
     }
 
     addNewService(): void {
-        this._router.navigateByUrl('/service_maintenance/detail/' + null);
+        this._router.navigateByUrl('/service_maintenance/' + null);
     }
 
 }

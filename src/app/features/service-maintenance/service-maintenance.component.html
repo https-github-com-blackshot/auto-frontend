@@ -3,30 +3,39 @@
 <div class="main-content">
     <div class="w3-container">
 
-        <button (click)="addNewService()" mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
-            <mat-icon>add</mat-icon>
-            Добавить СТО
-        </button>
+        <!--<button (click)="addNewService()" mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">-->
+            <!--<mat-icon>add</mat-icon>-->
+            <!--Добавить СТО-->
+        <!--</button>-->
 
-        <div *ngFor="let s of serviceMaintenanceList" class="w3-card-4" style="width:100%">
-            <header class="w3-container w3-light-grey">
-                <h3>{{s.name}}</h3>
-            </header>
-            <div class="w3-container">
 
-                <div class="rating">
-                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+        <mat-tab-group>
+            <mat-tab label="Список СТО">
+                <div *ngFor="let s of serviceMaintenanceList" class="w3-card-4" style="width:100%">
+                    <header class="w3-container w3-light-grey">
+                        <h3>{{s.name}}</h3>
+                    </header>
+                    <div class="w3-container">
+
+                        <div class="rating">
+                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                        </div>
+
+
+                        <img src="https://pp.userapi.com/c638018/v638018279/56510/iHL2fii8lMk.jpg" alt="Avatar"
+                             class="w3-left w3-circle w3-margin-right" style="width:60px">
+
+                        <p style="overflow: hidden;">{{s.description}}</p><br>
+                        <p>{{s.address}}</p>
+                    </div>
+                    <button class="w3-button w3-block w3-dark-grey">Посмотреть полную ниформацию</button>
                 </div>
+            </mat-tab>
+            <mat-tab label="Добавить СТО">
+                <app-service-maintenance-detail></app-service-maintenance-detail>
+            </mat-tab>
+        </mat-tab-group>
 
-
-                <img src="https://pp.userapi.com/c638018/v638018279/56510/iHL2fii8lMk.jpg" alt="Avatar"
-                     class="w3-left w3-circle w3-margin-right" style="width:60px">
-
-                <p>{{s.name}}</p><br>
-                <p>Место работы: Жандосова 34а</p>
-            </div>
-            <button class="w3-button w3-block w3-dark-grey">Посмотреть полную ниформацию</button>
-        </div>
 
 
     </div>

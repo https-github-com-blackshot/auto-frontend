@@ -44,4 +44,12 @@ export class ServiceMaintenanceDetailComponent implements OnInit, OnDestroy {
       });
     }
 
+    create(): void {
+        this.serviceMaintenance.ratingId = 1;
+        this._serviceMaintenanceService.createServiceMaintenance(this.serviceMaintenance)
+            .pipe(takeUntil(this._unsubscribeAll)).subscribe((res) => {
+            console.log('res', res);
+        });
+    }
+
 }
