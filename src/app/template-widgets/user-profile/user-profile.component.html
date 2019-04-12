@@ -1,108 +1,159 @@
 <div class="main-content">
-  <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-8">
-              <div class="card">
-                  <div class="card-header card-header-danger">
-                      <h4 class="card-title">Edit Profile</h4>
-                      <p class="card-category">Complete your profile</p>
-                  </div>
-                  <div class="card-body">
-                      <form *ngIf="user">
-                          <div class="row">
-                              <div class="col-md-5">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Company (disabled)" disabled>
-                                  </mat-form-field>
-                              </div>
-                              <div class="col-md-3">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Username" [(ngModel)]="user.username" name="username">
-                                  </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Email address" type="email" [(ngModel)]="user.email" name="email">
-                                  </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Fist Name" type="text" [(ngModel)]="user.firstName" name="firstName">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Last Name" type="text" [(ngModel)]="user.lastName" name="lastName">
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-12">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Adress" type="text">
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="City" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Country" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Postal Code" type="text">
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-12">
-                                <label>About Me</label>
-                                <mat-form-field class="example-full-width">
-                                   <textarea matInput placeholder="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."></textarea>
-                                 </mat-form-field>
-                                  <!-- <div class="form-group">
 
-                                      <div class="form-group">
-                                          <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                                          <textarea class="form-control" rows="5"></textarea>
+
+
+        <mat-tab-group>
+            <mat-tab label="Пользователь">
+                <div class="container-fluid">
+                  <div class="row">
+                      <div class="col-md-8">
+                          <div class="card">
+                              <div class="card-header card-header-danger">
+                                  <h4 class="card-title">Edit Profile</h4>
+                                  <p class="card-category">Complete your profile</p>
+                              </div>
+                              <div class="card-body">
+                                  <form *ngIf="user">
+                                      <div class="row">
+                                          <div class="col-md-5">
+                                            <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="Company (disabled)" disabled>
+                                              </mat-form-field>
+                                          </div>
+                                          <div class="col-md-3">
+                                              <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="Username" [(ngModel)]="user.username" name="username">
+                                              </mat-form-field>
+                                          </div>
+                                          <div class="col-md-4">
+                                              <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="Email address" type="email" [(ngModel)]="user.email" name="email">
+                                              </mat-form-field>
+                                          </div>
                                       </div>
-                                  </div> -->
+                                      <div class="row">
+                                          <div class="col-md-6">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="Fist Name" type="text" [(ngModel)]="user.firstName" name="firstName">
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="Last Name" type="text" [(ngModel)]="user.lastName" name="lastName">
+                                            </mat-form-field>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-12">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="Middle name" type="text" [(ngModel)]="user.middleName" name="middleName">
+                                            </mat-form-field>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+
+                                          <div class="col-md-4">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="Phone number" type="number" [(ngModel)]="user.phoneNumber" name="phoneNumber">
+                                            </mat-form-field>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-12">
+                                            <label>About Me</label>
+                                            <mat-form-field class="example-full-width">
+                                               <textarea matInput ></textarea>
+                                             </mat-form-field>
+                                              <!-- <div class="form-group">
+
+                                                  <div class="form-group">
+                                                      <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                                                      <textarea class="form-control" rows="5"></textarea>
+                                                  </div>
+                                              </div> -->
+                                          </div>
+                                      </div>
+                                      <button (click)="editUser(user)" mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
+                                      <div class="clearfix"></div>
+                                  </form>
                               </div>
                           </div>
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
-                          <div class="clearfix"></div>
-                      </form>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="card card-profile">
+                              <div class="card-avatar">
+                                  <a href="#pablo">
+                                      <img class="img" src="./assets/img/faces/marc.jpg" />
+                                  </a>
+                              </div>
+                              <div class="card-body">
+                                  <h6 class="card-category text-gray">Моторщик</h6>
+                                  <h4 class="card-title">Олег Михайлович</h4>
+                                  <p class="card-description">
+                                      Любовь не заслужишь ни делом, ни словом,
+                                      прощай, человечек, твой двигатель сломан,
+                                      всегда не в себе, но сегодня притих:
+                                      на кнопочку жмёшь, а моторчик — пых-пых.
+                                  </p>
+                                  <a href="#pablo" class="btn btn-danger btn-round">Редактировать</a>
+                              </div>
+                          </div>
+                      </div>
                   </div>
-              </div>
-          </div>
-          <div class="col-md-4">
-              <div class="card card-profile">
-                  <div class="card-avatar">
-                      <a href="#pablo">
-                          <img class="img" src="./assets/img/faces/marc.jpg" />
-                      </a>
-                  </div>
-                  <div class="card-body">
-                      <h6 class="card-category text-gray">Моторщик</h6>
-                      <h4 class="card-title">Олег Михайлович</h4>
-                      <p class="card-description">
-                          Любовь не заслужишь ни делом, ни словом,
-                          прощай, человечек, твой двигатель сломан,
-                          всегда не в себе, но сегодня притих:
-                          на кнопочку жмёшь, а моторчик — пых-пых.
-                      </p>
-                      <a href="#pablo" class="btn btn-danger btn-round">Редактировать</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+                </div>
+            </mat-tab>
+
+
+
+
+            <mat-tab label="Сервисная книжка">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header card-header-danger">
+                            <h4 class="card-title">Сервисная Книжка</h4>
+                            <p class="card-category">Сервисы</p>
+                        </div>
+                        <div class="card-body">
+                            <form *ngIf="user">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Company (disabled)" disabled>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Code" [(ngModel)]="user.username" name="username">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Email address" type="email" [(ngModel)]="user.email" name="email">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Fist Name" type="text" [(ngModel)]="user.firstName" name="firstName">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Last Name" type="text" [(ngModel)]="user.lastName" name="lastName">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Middle name" type="text" [(ngModel)]="user.middleName" name="middleName">
+                                        </mat-form-field>
+                                    </div>
+
+                                </div>
+                                <button (click)="editUser(user)" mat-raised-button type="submit" class="btn btn-danger pull-right">Change</button>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
 </div>

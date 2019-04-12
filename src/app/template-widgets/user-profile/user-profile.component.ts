@@ -47,23 +47,12 @@ export class UserProfileComponent implements OnInit , OnDestroy {
     }
 
     editUser(user: Users): void {
-        const dialogRef = this._dialog.open(UserModalComponent, {
-            width: '450px',
-            data: {
-                title: 'Изменение ваши данных',
-                user: user
-            }
-        });
+        if (user != null) {
+            this._userService.updateUser(user).subscribe(res => {
+                this.loadUsers();
+            });
+        }
 
-        dialogRef.afterClosed().subscribe(result => {
-            console.log('The dialog was closed');
-            console.log('result', result);
-            if (result !== null && result !== undefined) {
-                this._userService.updateUser(result).subscribe(res => {
-                    this.loadUsers();
-                });
-            }
-        });
     }
 
 
