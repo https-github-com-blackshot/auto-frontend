@@ -10,20 +10,15 @@
                     <div class="card-body">
                         <form>
                             <div class="row">
-                                <div class="col-md-5">
-                                    <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Company (disabled)" disabled>
-                                    </mat-form-field>
-                                </div>
                                 <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Username" [(ngModel)]="serviceMaintenance.name"
-                                               name="username">
+                                        <input matInput placeholder="Название" [(ngModel)]="serviceMaintenance.name"
+                                               name="name">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Email address" type="email"
+                                        <input matInput placeholder="Описание" type="description"
                                                [(ngModel)]="serviceMaintenance.description" name="email">
                                     </mat-form-field>
                                 </div>
@@ -31,20 +26,23 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Fist Name" type="text"
-                                               [(ngModel)]="serviceMaintenance.address" name="firstName">
+                                        <input matInput placeholder="Адрес" type="text"
+                                               [(ngModel)]="serviceMaintenance.address" name="address">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Last Name" type="text"
-                                               [(ngModel)]="serviceMaintenance.phoneNumber" name="lastName">
+                                        <input matInput placeholder="Номер телефона" type="text"
+                                               [(ngModel)]="serviceMaintenance.phoneNumber" name="phoneNumber">
                                     </mat-form-field>
                                 </div>
                             </div>
                         </form>
                     </div>
-                    <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
+                    <button mat-raised-button type="submit" (click)="create()" class="btn btn-danger pull-right">
+                        <mat-icon>add</mat-icon>
+                        Добавить СТО
+                    </button>
                     <div class="clearfix"></div>
                 </div>
             </div>
