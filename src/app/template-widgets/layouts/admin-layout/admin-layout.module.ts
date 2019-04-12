@@ -18,7 +18,7 @@ import {
     MatRippleModule,
     MatFormFieldModule,
     MatTooltipModule,
-    MatSelectModule, MatTabsModule,
+    MatSelectModule, MatTabsModule, MatIconModule,
 } from '@angular/material';
 import {AdminModule} from '../../../features/admin/admin.module';
 import {ServiceMaintenanceModule} from '../../../features/service-maintenance/service-maintenance.module';
@@ -38,6 +38,7 @@ import {UserProfileService} from '../../user-profile/user-profile.service';
         MatSelectModule,
         MatTooltipModule,
         MatTabsModule,
+        MatIconModule,
     ],
     declarations: [
         DashboardComponent,
