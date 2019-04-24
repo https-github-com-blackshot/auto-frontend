@@ -1,0 +1,28 @@
+.service_image{
+  width: 200px;
+  height: 150px;
+  float: left;
+}
+
+.content{
+
+  margin-left: 10px;
+
+  .rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    cursor: pointer;
+  }
+  .rating > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+  }
+  .rating > span:hover:before,
+  .rating > span:hover ~ span:before {
+    content: "\2605";
+    color: orange;
+    position: absolute;
+  }
+
+}

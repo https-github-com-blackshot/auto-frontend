@@ -1,51 +1,29 @@
 <div class="main-content">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header card-header-danger">
-                        <h4 class="card-title">Данные об СТО</h4>
-                        <p class="card-category">Заполните форму ниже!</p>
-                    </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Название" [(ngModel)]="serviceMaintenance.name"
-                                               name="name">
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-md-4">
-                                    <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Описание" type="description"
-                                               [(ngModel)]="serviceMaintenance.description" name="email">
-                                    </mat-form-field>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Адрес" type="text"
-                                               [(ngModel)]="serviceMaintenance.address" name="address">
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-md-6">
-                                    <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Номер телефона" type="text"
-                                               [(ngModel)]="serviceMaintenance.phoneNumber" name="phoneNumber">
-                                    </mat-form-field>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <button mat-raised-button type="submit" (click)="create()" class="btn btn-danger pull-right">
-                        <mat-icon>add</mat-icon>
-                        Добавить СТО
-                    </button>
-                    <div class="clearfix"></div>
+        <button mat-raised-button color="primary" [routerLink]="'/service_maintenance'">
+            <mat-icon>arrow_back</mat-icon> Назад
+        </button><br><br>
+        <div>
+            <img src="https://pp.userapi.com/c638018/v638018279/56510/iHL2fii8lMk.jpg" class="service_image"/>
+            <div class="content">
+                <h1>{{serviceMaintenance.name}}</h1>
+                <div class="rating">
+                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                 </div>
             </div>
+            <br><br><br>
+        </div>
+        <div>
+            <h2>Основная информация</h2>
+            <p>{{serviceMaintenance.description}}</p>
+        </div>
+        <div>
+            <h3>Адрес</h3>
+            <p>{{serviceMaintenance.address}}</p>
+        </div>
+        <div>
+            <h3>Контакты</h3>
+            <p>{{serviceMaintenance.phoneNumber}}</p>
         </div>
     </div>
 </div>

@@ -8,6 +8,7 @@ import {ServiceMaintenanceService} from './service-maintenance.service';
 import {ServiceMaintenanceRoutingModule} from './service-maintenance-routing.module';
 import {MatButtonModule, MatCardModule, MatIconModule, MatInputModule, MatTabsModule} from '@angular/material';
 import {ServiceMaintenanceDetailComponent} from './components/service-maintenance-detail/service-maintenance-detail.component';
+import { ServiceMaintenanceControlComponent } from './components/service-maintenance-control/service-maintenance-control.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,7 @@ import {ServiceMaintenanceDetailComponent} from './components/service-maintenanc
     MatInputModule,
     MatTabsModule
   ],
-  declarations: [ServiceMaintenanceComponent, ServiceMaintenanceDetailComponent],
+  declarations: [ServiceMaintenanceComponent, ServiceMaintenanceDetailComponent, ServiceMaintenanceControlComponent],
   providers: [ServiceMaintenanceService],
   entryComponents: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

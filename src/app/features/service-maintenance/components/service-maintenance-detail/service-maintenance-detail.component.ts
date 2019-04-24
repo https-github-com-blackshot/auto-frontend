@@ -4,6 +4,7 @@ import {ServiceMaintenanceService} from '../../service-maintenance.service';
 import {ActivatedRoute} from '@angular/router';
 import {takeUntil} from 'rxjs/operators';
 import {ServiceMaintenance} from '../../../../models/service-maintenance';
+import {Rating} from '../../../../models/rating';
 
 @Component({
   selector: 'app-service-maintenance-detail',
@@ -12,9 +13,10 @@ import {ServiceMaintenance} from '../../../../models/service-maintenance';
 })
 export class ServiceMaintenanceDetailComponent implements OnInit, OnDestroy {
 
-    @Input() serviceMaintenance: ServiceMaintenance;
-
     serviceMaintenance: ServiceMaintenance;
+    rating: Rating;
+    overallRating: number;
+    serviceMaintenanceId: number;
 
     private _unsubscribeAll: Subject<any>;
 
@@ -26,11 +28,13 @@ export class ServiceMaintenanceDetailComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-      this.serviceMaintenance = new ServiceMaintenance();
-      this.loadServiceMaintenance();
-      this._route.params.subscribe(params => {
-        // this.serviceMaintenanceId = params['id'];
-      });
+        this.serviceMaintenance = new ServiceMaintenance();
+        this._route.params.subscribe(params => {
+            this.serviceMaintenanceId = params['id'];
+            if (this.serviceMaintenanceId !== undefined && this.serviceMaintenanceId !== null) {
+                this.loadServiceMaintenance();
+            }
+        });
     }
 
     ngOnDestroy(): void {
@@ -39,19 +43,20 @@ export class ServiceMaintenanceDetailComponent implements OnInit, OnDestroy {
     }
 
     loadServiceMaintenance(): void {
-      this._serviceMaintenanceService.getServiceMaintenance(this.serviceMaintenanceId)
-          .pipe(takeUntil(this._unsubscribeAll)).subscribe((res) => {
+        this._serviceMaintenanceService.getServiceMaintenance(this.serviceMaintenanceId)
+            .pipe(takeUntil(this._unsubscribeAll)).subscribe((res => {
             this.serviceMaintenance = res;
-            console.log(this.serviceMaintenance);
-      });
+            this.loadRating();
+            console.log('Service Maintenance', this.serviceMaintenance);
+        }));
     }
 
-    create(): void {
-        this.serviceMaintenance.ratingId = 1;
-        this._serviceMaintenanceService.createServiceMaintenance(this.serviceMaintenance)
-            .pipe(takeUntil(this._unsubscribeAll)).subscribe((res) => {
-            console.log('res', res);
-        });
+    loadRating(): void {
+        this._serviceMaintenanceService.getRating(this.serviceMaintenance.ratingId)
+            .pipe(takeUntil(this._unsubscribeAll)).subscribe((res => {
+            this.rating = res;
+            this.overallRating = this.rating.veryLow + this.rating.low + this.rating.medium + this.rating.high + this.rating.veryHigh;
+        }))
     }
 
 }

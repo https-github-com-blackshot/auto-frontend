@@ -6,6 +6,7 @@ import {Users} from '../../../../models/users';
 import {takeUntil} from 'rxjs/operators';
 import {MatDialog} from '@angular/material';
 import {UserModalComponent} from './user-modal/user-modal.component';
+import {Roles} from '../../../../models/roles';
 
 @Component({
     selector: 'app-users',
@@ -15,6 +16,7 @@ import {UserModalComponent} from './user-modal/user-modal.component';
 export class UsersComponent implements OnInit, OnDestroy {
 
     private users: Array<Users> = [];
+    private roles: Array<Roles> = [];
 
     private _unsubscribeAll: Subject<any>;
 
@@ -29,6 +31,7 @@ export class UsersComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.loadUsers();
+        this.loadRoles();
     }
 
     ngOnDestroy() {
@@ -43,12 +46,19 @@ export class UsersComponent implements OnInit, OnDestroy {
         })
     }
 
+    loadRoles() {
+        this._adminService.getAllRoles().pipe(takeUntil(this._unsubscribeAll)).subscribe((res) => {
+            this.roles = res;
+        });
+    }
+
     addNewUser(): void {
         const dialogRef = this._dialog.open(UserModalComponent, {
             width: '450px',
             data: {
                 title: 'Добавление нового пользователя',
-                user: new Users()
+                user: new Users(),
+                roles: this.roles
             }
         });
 
@@ -68,7 +78,8 @@ export class UsersComponent implements OnInit, OnDestroy {
             width: '450px',
             data: {
                 title: 'Изменение данных пользователя',
-                user: user
+                user: user,
+                roles: this.roles
             }
         });
 

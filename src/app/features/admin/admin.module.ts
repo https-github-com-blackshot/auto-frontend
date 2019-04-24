@@ -12,7 +12,7 @@ import {
     MatDialogModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule, MatNativeDateModule,
+    MatInputModule, MatNativeDateModule, MatSelectModule,
     MatTabsModule
 } from '@angular/material';
 import { UsersComponent } from './components/users/users.component';
@@ -35,7 +35,8 @@ import { RoleModalComponent } from './components/roles/role-modal/role-modal.com
       MatInputModule,
       MatFormFieldModule,
       MatDatepickerModule,
-      MatNativeDateModule
+      MatNativeDateModule,
+      MatSelectModule
   ],
   declarations: [AdminComponent, UsersComponent, RolesComponent, RightsComponent, UserModalComponent, RoleModalComponent],
   providers: [AdminService],

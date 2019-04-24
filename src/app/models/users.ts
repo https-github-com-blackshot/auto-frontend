@@ -9,7 +9,8 @@ export class Users {
         public middleName?: string,
         public birthdate?: any,
         public email?: string,
-        public phoneNumber?: string
+        public phoneNumber?: string,
+        public roleId?: string
     ) {}
 
 

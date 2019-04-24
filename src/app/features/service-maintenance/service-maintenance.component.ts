@@ -52,11 +52,7 @@ export class ServiceMaintenanceComponent implements OnInit, OnDestroy {
     // }
 
     view(id): void {
-        this._serviceMaintenanceService.getServiceMaintenance(id)
-            .pipe(takeUntil(this._unsubscribeAll)).subscribe((res) => {
-            this.serviceMaintenance = res;
-            console.log(this.serviceMaintenance);
-        });
+        this._router.navigateByUrl('/service_maintenance/' + id);
     }
 
 }

@@ -1,0 +1,51 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Данные об СТО</h4>
+            <p class="card-category">Заполните форму ниже!</p>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col-md-3">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Название" [(ngModel)]="serviceMaintenance.name"
+                           name="name">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Описание" type="description"
+                           [(ngModel)]="serviceMaintenance.description" name="email">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Адрес" type="text"
+                           [(ngModel)]="serviceMaintenance.address" name="address">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Номер телефона" type="text"
+                           [(ngModel)]="serviceMaintenance.phoneNumber" name="phoneNumber">
+                  </mat-form-field>
+                </div>
+              </div>
+            </form>
+          </div>
+          <button mat-raised-button type="submit" (click)="create()" class="btn btn-danger pull-right">
+            <mat-icon>add</mat-icon>
+            Добавить СТО
+          </button>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
