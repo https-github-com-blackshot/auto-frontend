@@ -12,6 +12,7 @@ import {MapsComponent} from '../../maps/maps.component';
 import {NotificationsComponent} from '../../notifications/notifications.component';
 import {UpgradeComponent} from '../../upgrade/upgrade.component';
 
+
 import {
     MatButtonModule,
     MatInputModule,
@@ -23,6 +24,7 @@ import {
 import {AdminModule} from '../../../features/admin/admin.module';
 import {ServiceMaintenanceModule} from '../../../features/service-maintenance/service-maintenance.module';
 import {UserProfileService} from '../../user-profile/user-profile.service';
+import {ServiceBookComponent} from '../../user-profile/user-profile-book/service-book/service-book.component';
 
 @NgModule({
     imports: [
@@ -49,6 +51,7 @@ import {UserProfileService} from '../../user-profile/user-profile.service';
         MapsComponent,
         NotificationsComponent,
         UpgradeComponent,
+        ServiceBookComponent
     ],
     providers: [UserProfileService]
 })

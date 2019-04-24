@@ -93,44 +93,7 @@
 
 
             <mat-tab label="Сервисная книжка">
-                <div class="col-md-8" class="width:100%;">
-                    <div class="card">
-                        <div class="card-header card-header-danger">
-                            <h4 class="card-title">Сервисная Книжка</h4>
-                            <p class="card-category">Сервисы</p>
-                        </div>
-                        <div class="card-body">
-
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead class=" text-primary">
-                                    <th>№</th>
-                                    <th>Наименование транспорта</th>
-                                    <th>Код</th>
-                                    <th>User Name</th>
-                                    <th>Почта</th>
-                                    <th>
-                                        <button (click)="addNewUser()" mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
-                                            <mat-icon>person_add</mat-icon>
-                                        </button>
-                                    </th>
-                                    </thead>
-                                    <tbody>
-                                    <tr *ngFor="let service of serviceBook; let i = index">
-                                        <td>{{i+1}}</td>
-                                        <td>{{service.name}}  </td>
-                                        <td>{{service.code}}</td>
-                                        <td>{{service.user_id.name}}</td>
-                                        <td>{{user.email}}</td>
-                                        <td>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <app-service-book></app-service-book>
             </mat-tab>
         </mat-tab-group>
 </div>
