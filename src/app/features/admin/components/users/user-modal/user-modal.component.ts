@@ -2,6 +2,7 @@ import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from 'rxjs';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {Users} from '../../../../../models/users';
+import {Roles} from '../../../../../models/roles';
 
 @Component({
   selector: 'app-user-modal',
@@ -16,7 +17,8 @@ export class UserModalComponent implements OnInit, OnDestroy {
         public _dialogRef: MatDialogRef<any>,
         @Inject(MAT_DIALOG_DATA) public data: {
             title: string,
-            user: Users
+            user: Users,
+            roles: Roles[]
         }
     ) {
         this._unsubscribeAll = new Subject();

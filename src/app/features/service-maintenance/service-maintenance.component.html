@@ -28,11 +28,11 @@
                         <p style="overflow: hidden;">{{s.description}}</p><br>
                         <p>{{s.address}}</p>
                     </div>
-                    <button class="w3-button w3-block w3-dark-grey">Посмотреть полную ниформацию</button>
+                    <button class="w3-button w3-block w3-dark-grey" (click)="view(s.id)">Посмотреть полную ниформацию</button>
                 </div>
             </mat-tab>
             <mat-tab label="Добавить СТО">
-                <app-service-maintenance-detail></app-service-maintenance-detail>
+                <app-service-maintenance-control [serviceMaintenance]="serviceMaintenance"></app-service-maintenance-control>
             </mat-tab>
         </mat-tab-group>
 

@@ -16,6 +16,8 @@ export class ServiceMaintenanceComponent implements OnInit, OnDestroy {
 
     serviceMaintenanceList: Array<ServiceMaintenance> = [];
 
+    serviceMaintenance: ServiceMaintenance;
+
     private _unsubscribeAll: Subject<any>;
 
     constructor(
@@ -41,8 +43,16 @@ export class ServiceMaintenanceComponent implements OnInit, OnDestroy {
       });
     }
 
-    addNewService(): void {
-        this._router.navigateByUrl('/service_maintenance/' + null);
+    // loadServiceMaintenance(): void {
+    //     this._serviceMaintenanceService.getServiceMaintenance(this.serviceMaintenanceId)
+    //         .pipe(takeUntil(this._unsubscribeAll)).subscribe((res) => {
+    //         this.serviceMaintenance = res;
+    //         console.log(this.serviceMaintenance);
+    //     });
+    // }
+
+    view(id): void {
+        this._router.navigateByUrl('/service_maintenance/' + id);
     }
 
 }

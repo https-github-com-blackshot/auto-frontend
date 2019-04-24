@@ -23,21 +23,21 @@ export class AuthComponent implements OnInit {
 
   }
 
-  authenticate(){
+  authenticate(): void {
 
-    if (this.userData.password === '123' && this.userData.username === 'tima-kh-97'){
-        this._route.navigateByUrl('dashboard');
-    }
-
-    if (this.userData.password === '123' && this.userData.username === 'alikhan.m'){
-      this._route.navigateByUrl('dashboard');
-    }
-
-    // this._authService.getUserByUsernameAndPassword(this.userData.username, this.userData.password).subscribe((res) => {
-    //   if (res !== null){
+    // if (this.userData.password === '123' && this.userData.username === 'tima-kh-97'){
     //     this._route.navigateByUrl('dashboard');
-    //   }
-    // });
+    // }
+    //
+    // if (this.userData.password === '123' && this.userData.username === 'alikhan.m'){
+    //   this._route.navigateByUrl('dashboard');
+    // }
+
+    this._authService.getUserByUsernameAndPassword(this.userData.username, this.userData.password).subscribe((res) => {
+      if (res !== null && res !== undefined){
+        this._route.navigateByUrl('dashboard');
+      }
+    });
   }
 
 }

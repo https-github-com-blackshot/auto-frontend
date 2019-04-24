@@ -26,6 +26,13 @@
   <mat-form-field>
     <input placeholder="Телефон" type="text" matInput [(ngModel)]="data.user.phoneNumber">
   </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Роль" [(ngModel)]="data.user.roleId">
+      <mat-option *ngFor="let role of data.roles" [value]="role.id">
+        {{role.nameRu}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Закрыть</button>
