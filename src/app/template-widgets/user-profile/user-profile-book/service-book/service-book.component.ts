@@ -15,6 +15,7 @@ import {Users} from '../../../../models/users';
 export class ServiceBookComponent implements OnInit, OnDestroy {
 
     users: Array<Users> = [];
+    user: Users;
 
     serviceBook: Array<ServiceBook> = [];
     private _unsubscribeAll: Subject<any>;
@@ -40,6 +41,7 @@ export class ServiceBookComponent implements OnInit, OnDestroy {
     loadUsers() {
         this._userService.getAllUsers().pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
             this.users = res;
+            this.user = this.users[0];
             // console.log(this.users)
         })
     }

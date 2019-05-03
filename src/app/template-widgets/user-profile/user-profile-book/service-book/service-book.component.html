@@ -15,7 +15,7 @@
             <th>Код</th>
             <th>User Name</th>
             </thead>
-            <tbody>
+            <tbody  *ngIf="user.id">
             <tr *ngFor="let service of serviceBook; let i = index; ">
               <td>{{i+1}}</td>
               <td>{{service.name}}  </td>
