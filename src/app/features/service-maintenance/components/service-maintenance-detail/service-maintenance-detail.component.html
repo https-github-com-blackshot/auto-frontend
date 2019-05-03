@@ -8,7 +8,16 @@
             <div class="content">
                 <h1>{{serviceMaintenance.name}}</h1>
                 <div class="rating">
-                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                    <span *ngIf="overallRating >= 5" style="color: orange;" (click)="giveRating(5)">☆</span>
+                    <span *ngIf="overallRating < 5" (click)="giveRating(5)">☆</span>
+                    <span *ngIf="overallRating >= 4" style="color: orange;" (click)="giveRating(4)">☆</span>
+                    <span *ngIf="overallRating < 4" (click)="giveRating(4)">☆</span>
+                    <span *ngIf="overallRating >= 3" style="color: orange;" (click)="giveRating(3)">☆</span>
+                    <span *ngIf="overallRating < 3" (click)="giveRating(3)">☆</span>
+                    <span *ngIf="overallRating >= 2" style="color: orange;" (click)="giveRating(2)">☆</span>
+                    <span *ngIf="overallRating < 2" (click)="giveRating(2)">☆</span>
+                    <span *ngIf="overallRating >= 1" style="color: orange;" (click)="giveRating(1)">☆</span>
+                    <span *ngIf="overallRating < 1" (click)="giveRating(1)">☆</span>
                 </div>
             </div>
             <br><br><br>
