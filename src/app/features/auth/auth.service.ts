@@ -10,6 +10,7 @@ import {map} from 'rxjs/operators';
 export class AuthService {
 
   private readonly GET_USER_BY_USERNAME_AND_PASSWORD = '/core/auth';
+  private readonly GET_USER_ROLE_MAP_BY_USER_ID = '/core/users/role/map/byUserId';
 
   constructor(
       private _http: HttpClient
@@ -20,5 +21,13 @@ export class AuthService {
       return res;
     }));
   }
+
+  public getUserRoleMapByUserId(userId: string): Observable<any> {
+    return this._http.get(this.GET_USER_ROLE_MAP_BY_USER_ID + '/' + userId).pipe(map( res => {
+      return res;
+    }));
+  }
+
+
 
 }

@@ -19,7 +19,9 @@ export class AdminComponent implements OnInit, OnDestroy {
     ) {}
 
     ngOnInit() {
-
+        if (localStorage.getItem('role') !== 'ADMIN') {
+            this._router.navigateByUrl('dashboard');
+        }
     }
 
     ngOnDestroy() {
