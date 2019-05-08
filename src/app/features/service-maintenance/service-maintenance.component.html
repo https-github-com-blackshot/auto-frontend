@@ -11,19 +11,28 @@
 
         <mat-tab-group>
             <mat-tab label="Список СТО">
-                <div *ngFor="let s of serviceMaintenanceList" class="w3-card-4" style="width:100%">
+                <div *ngFor="let s of serviceMaintenanceList; let i = index;" class="w3-card-4" style="width:100%">
                     <header class="w3-container w3-light-grey">
                         <h3>{{s.name}}</h3>
                     </header>
                     <div class="w3-container">
 
                         <div class="rating">
-                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                            <span *ngIf="overallRating >= 5" style="color: orange;" (click)="giveRating(5)">☆</span>
+                            <span *ngIf="overallRating < 5" (click)="giveRating(5)">☆</span>
+                            <span *ngIf="overallRating >= 4" style="color: orange;" (click)="giveRating(4)">☆</span>
+                            <span *ngIf="overallRating < 4" (click)="giveRating(4)">☆</span>
+                            <span *ngIf="overallRating >= 3" style="color: orange;" (click)="giveRating(3)">☆</span>
+                            <span *ngIf="overallRating < 3" (click)="giveRating(3)">☆</span>
+                            <span *ngIf="overallRating >= 2" style="color: orange;" (click)="giveRating(2)">☆</span>
+                            <span *ngIf="overallRating < 2" (click)="giveRating(2)">☆</span>
+                            <span *ngIf="overallRating >= 1" style="color: orange;" (click)="giveRating(1)">☆</span>
+                            <span *ngIf="overallRating < 1" (click)="giveRating(1)">☆</span>
                         </div>
 
 
-                        <img src="https://pp.userapi.com/c638018/v638018279/56510/iHL2fii8lMk.jpg" alt="Avatar"
-                             class="w3-left w3-circle w3-margin-right" style="width:60px">
+                        <img src="http://сто-тяга.рф/wp-content/uploads/2018/07/glav.jpg" alt="Avatar"
+                             class="w3-left w3-circle w3-margin-right" style="width:80px">
 
                         <p style="overflow: hidden;">{{s.description}}</p><br>
                         <p>{{s.address}}</p>
@@ -31,7 +40,7 @@
                     <button class="w3-button w3-block w3-dark-grey" (click)="view(s.id)">Посмотреть полную ниформацию</button>
                 </div>
             </mat-tab>
-            <mat-tab label="Добавить СТО">
+            <mat-tab *ngIf="role === 'ADMIN'" label="Добавить СТО">
                 <app-service-maintenance-control [serviceMaintenance]="serviceMaintenance"></app-service-maintenance-control>
             </mat-tab>
         </mat-tab-group>

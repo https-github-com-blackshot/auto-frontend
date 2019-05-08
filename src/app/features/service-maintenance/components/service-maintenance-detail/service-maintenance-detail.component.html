@@ -4,11 +4,20 @@
             <mat-icon>arrow_back</mat-icon> Назад
         </button><br><br>
         <div>
-            <img src="https://pp.userapi.com/c638018/v638018279/56510/iHL2fii8lMk.jpg" class="service_image"/>
+            <img src="http://сто-тяга.рф/wp-content/uploads/2018/07/glav.jpg" class="service_image" style="width: 200px;"/>
             <div class="content">
                 <h1>{{serviceMaintenance.name}}</h1>
                 <div class="rating">
-                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                    <span *ngIf="overallRating >= 5" style="color: orange;" (click)="giveRating(5)">☆</span>
+                    <span *ngIf="overallRating < 5" (click)="giveRating(5)">☆</span>
+                    <span *ngIf="overallRating >= 4" style="color: orange;" (click)="giveRating(4)">☆</span>
+                    <span *ngIf="overallRating < 4" (click)="giveRating(4)">☆</span>
+                    <span *ngIf="overallRating >= 3" style="color: orange;" (click)="giveRating(3)">☆</span>
+                    <span *ngIf="overallRating < 3" (click)="giveRating(3)">☆</span>
+                    <span *ngIf="overallRating >= 2" style="color: orange;" (click)="giveRating(2)">☆</span>
+                    <span *ngIf="overallRating < 2" (click)="giveRating(2)">☆</span>
+                    <span *ngIf="overallRating >= 1" style="color: orange;" (click)="giveRating(1)">☆</span>
+                    <span *ngIf="overallRating < 1" (click)="giveRating(1)">☆</span>
                 </div>
             </div>
             <br><br><br>

@@ -35,7 +35,15 @@ export class AuthComponent implements OnInit {
 
     this._authService.getUserByUsernameAndPassword(this.userData.username, this.userData.password).subscribe((res) => {
       if (res !== null && res !== undefined){
-        this._route.navigateByUrl('dashboard');
+        this._authService.getUserRoleMapByUserId(res.id).subscribe((res2) => {
+          const userRoleMap = res2;
+          if (userRoleMap.roleId === 1) {
+            localStorage.setItem('role', 'ADMIN');
+          } else {
+            localStorage.setItem('role', 'USER');
+          }
+            this._route.navigateByUrl('dashboard');
+        });
       }
     });
   }
