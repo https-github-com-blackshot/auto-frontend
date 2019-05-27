@@ -6,12 +6,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './template-widgets/layouts/admin-layout/admin-layout.component';
 import {AuthComponent} from './features/auth/auth.component';
 
-const routes: Routes =[
-  {
-    path: '',
-    redirectTo: 'auth',
-    pathMatch: 'full',
-  }, {
+const routes: Routes = [
+    {
+      path: '',
+      redirectTo: 'dashboard',
+      pathMatch: 'full',
+    },
+
+    {
     path: '',
     component: AdminLayoutComponent,
     children: [

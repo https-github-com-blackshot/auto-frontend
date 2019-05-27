@@ -24,17 +24,10 @@ export class AuthComponent implements OnInit {
   }
 
   authenticate(): void {
-
-    // if (this.userData.password === '123' && this.userData.username === 'tima-kh-97'){
-    //     this._route.navigateByUrl('dashboard');
-    // }
-    //
-    // if (this.userData.password === '123' && this.userData.username === 'alikhan.m'){
-    //   this._route.navigateByUrl('dashboard');
-    // }
-
     this._authService.getUserByUsernameAndPassword(this.userData.username, this.userData.password).subscribe((res) => {
-      if (res !== null && res !== undefined){
+      if (res !== null && res !== undefined) {
+        localStorage.setItem('current_user', res.id);
+        console.log(res);
         this._authService.getUserRoleMapByUserId(res.id).subscribe((res2) => {
           const userRoleMap = res2;
           if (userRoleMap.roleId === 1) {

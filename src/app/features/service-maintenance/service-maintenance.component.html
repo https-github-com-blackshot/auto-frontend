@@ -37,7 +37,7 @@
                         <p style="overflow: hidden;">{{s.description}}</p><br>
                         <p>{{s.address}}</p>
                     </div>
-                    <button class="w3-button w3-block w3-dark-grey" (click)="view(s.id)">Посмотреть полную ниформацию</button>
+                    <button mat-raised-button class="btn btn-danger" (click)="view(s.id)">Посмотреть полную информацию</button>
                 </div>
             </mat-tab>
             <mat-tab *ngIf="role === 'ADMIN'" label="Добавить СТО">

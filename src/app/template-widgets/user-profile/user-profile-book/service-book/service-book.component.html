@@ -15,12 +15,12 @@
             <th>Код</th>
             <th>User Name</th>
             </thead>
-            <tbody  *ngIf="user.id">
+            <tbody>
             <tr *ngFor="let service of serviceBook; let i = index; ">
-              <td>{{i+1}}</td>
-              <td>{{service.name}}  </td>
-              <td>{{service.code}}</td>
-              <td>{{service.user.lastName}} {{service.user.firstName}} {{service.user.middleName}}</td>
+              <td *ngIf = " user.id == service.userId">{{i+1}}</td>
+              <td *ngIf = " user.id == service.userId">{{service.name}}  </td>
+              <td *ngIf = " user.id == service.userId">{{service.code}}</td>
+              <td *ngIf = " user.id == service.userId">{{service.user.lastName}} {{service.user.firstName}} {{service.user.middleName}}</td>
             </tr>
             </tbody>
           </table>

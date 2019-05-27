@@ -41,6 +41,7 @@ import {ServiceBookComponent} from '../../user-profile/user-profile-book/service
         MatTooltipModule,
         MatTabsModule,
         MatIconModule,
+        ReactiveFormsModule,
     ],
     declarations: [
         DashboardComponent,

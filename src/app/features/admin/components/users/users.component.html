@@ -26,7 +26,11 @@
                                     <td>{{i+1}}</td>
                                     <td>{{user.lastName}} {{user.firstName}} {{user.middleName}}</td>
                                     <td>{{user.username}}</td>
-                                    <td>{{user.phoneNumber}}</td>
+                                    <td>
+                                        <span matPrefix>+7 &nbsp;</span>
+                                        {{user.phoneNumber}}
+
+                                    </td>
                                     <td>{{user.email}}</td>
                                     <td>
                                         <button (click)="editUser(user)" mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
