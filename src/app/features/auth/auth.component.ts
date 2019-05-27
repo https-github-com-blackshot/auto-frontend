@@ -9,36 +9,10 @@ import {Router} from '@angular/router';
 })
 export class AuthComponent implements OnInit {
 
-  userData: any = {
-    username: '',
-    password: ''
-  };
-
-  constructor(
-      private _authService: AuthService,
-      private _route: Router
-  ) { }
+  constructor() { }
 
   ngOnInit() {
 
-  }
-
-  authenticate(): void {
-    this._authService.getUserByUsernameAndPassword(this.userData.username, this.userData.password).subscribe((res) => {
-      if (res !== null && res !== undefined) {
-        localStorage.setItem('current_user', res.id);
-        console.log(res);
-        this._authService.getUserRoleMapByUserId(res.id).subscribe((res2) => {
-          const userRoleMap = res2;
-          if (userRoleMap.roleId === 1) {
-            localStorage.setItem('role', 'ADMIN');
-          } else {
-            localStorage.setItem('role', 'USER');
-          }
-            this._route.navigateByUrl('dashboard');
-        });
-      }
-    });
   }
 
 }
