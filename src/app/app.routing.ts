@@ -9,7 +9,7 @@ import {AuthComponent} from './features/auth/auth.component';
 const routes: Routes = [
     {
       path: '',
-      redirectTo: 'auth/login',
+      redirectTo: 'dashboard',
       pathMatch: 'full',
     },
     {
@@ -30,15 +30,6 @@ const routes: Routes = [
           }
       ]
     }
-    // { path: 'dashboard',      component: DashboardComponent },
-    // { path: 'user-profile',   component: UserProfileComponent },
-    // { path: 'table-list',     component: TableListComponent },
-    // { path: 'typography',     component: TypographyComponent },
-    // { path: 'icons',          component: IconsComponent },
-    // { path: 'maps',           component: MapsComponent },
-    // { path: 'notifications',  component: NotificationsComponent },
-    // { path: 'upgrade',        component: UpgradeComponent },
-    // { path: '',               redirectTo: 'dashboard', pathMatch: 'full' }
 ];
 
 @NgModule({

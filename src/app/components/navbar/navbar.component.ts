@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
       mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
-    role = localStorage.getItem('role');
+    current_user: any;
 
     constructor(location: Location,  private element: ElementRef, private router: Router) {
       this.location = location;
@@ -23,6 +23,7 @@ export class NavbarComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.current_user = localStorage.getItem('current_user');
       if (localStorage.getItem('role') === 'ADMIN') {
           this.listTitles = ADMIN_ROUTES.filter(listTitle => listTitle);
       } else {
@@ -39,9 +40,10 @@ export class NavbarComponent implements OnInit {
          }
      });
     }
+
     clearStorage(): void {
-        localStorage.setItem('role', '');
-        localStorage.setItem('current_user', '');
+        localStorage.removeItem('role');
+        localStorage.removeItem('current_user');
     }
 
     sidebarOpen() {
