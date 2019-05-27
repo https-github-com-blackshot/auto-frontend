@@ -21,7 +21,10 @@ export class AuthFormComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-
+        const currentUserId = localStorage.getItem('current_user');
+        if (currentUserId !== null && currentUserId !== undefined) {
+            this._route.navigateByUrl('dashboard');
+        }
     }
 
     authenticate(): void {

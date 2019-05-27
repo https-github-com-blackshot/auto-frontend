@@ -9,10 +9,9 @@ import {AuthComponent} from './features/auth/auth.component';
 const routes: Routes = [
     {
       path: '',
-      redirectTo: 'dashboard',
+      redirectTo: 'auth/login',
       pathMatch: 'full',
     },
-
     {
     path: '',
     component: AdminLayoutComponent,
