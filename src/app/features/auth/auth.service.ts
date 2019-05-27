@@ -12,12 +12,13 @@ export class AuthService {
 
   private readonly GET_USER_BY_USERNAME_AND_PASSWORD = '/core/auth';
   private readonly GET_USER_ROLE_MAP_BY_USER_ID = '/core/users/role/map/byUserId';
-  private readonly CREATE_USER = '/core/users/create';
+  private readonly CREATE_USER = '/core/users/register';
 
   constructor(
       private _http: HttpClient
   ) { }
-  public createUser(user: Users): Observable<any> {
+
+  public registerNewUser(user: Users): Observable<any> {
     return this._http.post(this.CREATE_USER, user).pipe(map( res => {
       return res;
     }));

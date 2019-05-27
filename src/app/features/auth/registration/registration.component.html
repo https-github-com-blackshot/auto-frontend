@@ -1,12 +1,13 @@
 <div class="wrapper">
     <div class="sidebar" data-color="danger" data-background-color="white" data-image="./assets/img/sidebar-1.jpg">
         <app-sidebar></app-sidebar>
-        <div class="sidebar-background" style="background-image: url(./assets/img/sidebar-4.jpg)"></div>
+        <div class="sidebar-background" style="background-image: url('./assets/img/sidebar-4.jpg')"></div>
     </div>
     <app-navbar></app-navbar>
 
     <div class="main-panel">
         <div style="margin: 5% 2% 0% 2% !important;">
+            <h2 style="text-align: center;">Заполните форму для регистрации</h2>
             <mat-form-field class="outline">
                 <input placeholder="Имя пользователя" type="text" matInput [(ngModel)]="user.username">
             </mat-form-field>
@@ -23,7 +24,7 @@
                 <input placeholder="Отчество" type="text" matInput [(ngModel)]="user.middleName">
             </mat-form-field>
             <mat-form-field>
-                <input matInput [matDatepicker]="picker" [(ngModel)]="user.birthdate" placeholder="Дата рождения">
+                <input matInput [matDatepicker]="picker" [(ngModel)]="user.birthDate" placeholder="Дата рождения">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
@@ -36,8 +37,8 @@
                        [(ngModel)]="user.phoneNumber">
                 <mat-hint align="end">{{PNumber.value.length}} / 10</mat-hint>
             </mat-form-field>
+            <button mat-raised-button class="btn btn-danger" (click)="createUser()">Создать аккаунт</button>
         </div>
-        <button mat-raised-button class="btn btn-danger" (click)="createUser()">Создать аккаунт</button>
     </div>
     <div *ngIf="isMaps('maps')">
         <app-footer></app-footer>

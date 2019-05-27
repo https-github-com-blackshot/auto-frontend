@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {Users} from '../../../models/users';
 import PerfectScrollbar from 'perfect-scrollbar';
 import {Location} from '@angular/common';
+import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material';
 
 @Component({
   selector: 'app-registration',
@@ -14,29 +15,34 @@ export class RegistrationComponent implements OnInit {
 
     user: Users;
 
+    horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+    verticalPosition: MatSnackBarVerticalPosition = 'top';
+
     constructor(
         private _authService: AuthService,
         private _route: Router,
         public location: Location,
-        private router: Router
+        private router: Router,
+        private _snackBar: MatSnackBar
     ) { }
 
     ngOnInit() {
-      this.user = new Users;
+      this.user = new Users();
         const currentUserId = localStorage.getItem('current_user');
         if (currentUserId !== null && currentUserId !== undefined) {
             this._route.navigateByUrl('dashboard');
         }
     }
+
     createUser(): void {
         console.log(this.user);
-        this.user.roleId = 2;
         if (this.user !== null && this.user !== undefined) {
-            this._authService.createUser(this.user).subscribe((res) => {
-                console.log(res);
+            this._authService.registerNewUser(this.user).subscribe((res) => {
+                this.user = res;
+                this.authenticate();
+                this.openSnackBar('Ваши данные успешно сохранены!');
             });
         }
-        this.authenticate();
     }
 
     authenticate(): void {
@@ -80,6 +86,14 @@ export class RegistrationComponent implements OnInit {
             bool = true;
         }
         return bool;
+    }
+
+    openSnackBar(message: string) {
+        this._snackBar.open(message, '', {
+            duration: 2000,
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+        });
     }
 
 }

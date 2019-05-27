@@ -6,7 +6,7 @@ import {CommonModule} from '@angular/common';
 import { AuthFormComponent } from './auth-form/auth-form.component';
 import {HttpClientModule} from '@angular/common/http';
 import { RegistrationComponent } from './registration/registration.component';
-import {MatDatepickerModule, MatInputModule, MatNativeDateModule} from '@angular/material';
+import {MatDatepickerModule, MatInputModule, MatNativeDateModule, MatSnackBarModule} from '@angular/material';
 import {ComponentsModule} from '../../components/components.module';
 
 @NgModule({
@@ -18,7 +18,8 @@ import {ComponentsModule} from '../../components/components.module';
         MatDatepickerModule,
         MatNativeDateModule,
         ComponentsModule,
-        MatInputModule
+        MatInputModule,
+        MatSnackBarModule
     ],
     declarations: [
         AuthFormComponent,
