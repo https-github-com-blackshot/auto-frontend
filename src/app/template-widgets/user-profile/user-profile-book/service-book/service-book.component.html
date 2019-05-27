@@ -14,6 +14,11 @@
             <th>Наименование транспорта</th>
             <th>Код</th>
             <th>User Name</th>
+            <th>
+              <button (click)="addServiceBook()" mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+                <mat-icon>person_add</mat-icon>
+              </button>
+            </th>
             </thead>
             <tbody>
             <tr *ngFor="let service of serviceBook; let i = index; ">
