@@ -29,6 +29,7 @@ export class UserModalComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
+        console.log('')
     }
 
     ngOnDestroy(): void {

@@ -7,7 +7,7 @@ export class Users {
         public firstName?: string,
         public lastName?: string,
         public middleName?: string,
-        public birthdate?: any,
+        public birthDate?: any,
         public email?: string,
         public phoneNumber?: string,
         public roleId?: string
