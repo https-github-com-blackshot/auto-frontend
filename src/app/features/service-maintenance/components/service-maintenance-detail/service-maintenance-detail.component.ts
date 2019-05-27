@@ -5,6 +5,10 @@ import {ActivatedRoute} from '@angular/router';
 import {takeUntil} from 'rxjs/operators';
 import {ServiceMaintenance} from '../../../../models/service-maintenance';
 import {Rating} from '../../../../models/rating';
+import {Feedback} from '../../../../models/feedback';
+import {ServiceMaintenanceFeedbackMap} from '../../../../models/service-maintenance-feedback-map';
+import {Users} from '../../../../models/users';
+import {UserProfileService} from '../../../../template-widgets/user-profile/user-profile.service';
 
 @Component({
   selector: 'app-service-maintenance-detail',
@@ -17,11 +21,18 @@ export class ServiceMaintenanceDetailComponent implements OnInit, OnDestroy {
     rating: Rating;
     overallRating: number;
     serviceMaintenanceId: number;
+    serviceMaintenanceFeedbackMapList: Array<ServiceMaintenanceFeedbackMap> = [];
+
+    userId: string;
+    currentUser: Users;
+    message: string;
+    fio: string;
 
     private _unsubscribeAll: Subject<any>;
 
     constructor(
         private _serviceMaintenanceService: ServiceMaintenanceService,
+        private _userService: UserProfileService,
         private _route: ActivatedRoute
     ) {
         this._unsubscribeAll = new Subject();
@@ -29,6 +40,7 @@ export class ServiceMaintenanceDetailComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.serviceMaintenance = new ServiceMaintenance();
+        this.loadCurrentUser();
         this._route.params.subscribe(params => {
             this.serviceMaintenanceId = params['id'];
             if (this.serviceMaintenanceId !== undefined && this.serviceMaintenanceId !== null) {
@@ -42,13 +54,63 @@ export class ServiceMaintenanceDetailComponent implements OnInit, OnDestroy {
         this._unsubscribeAll.complete();
     }
 
+    loadCurrentUser(): void {
+        this.userId = localStorage.getItem('current_user');
+        this._userService.getUserById(this.userId).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+            this.currentUser = res;
+            console.log(this.currentUser)
+        })
+    }
+
     loadServiceMaintenance(): void {
         this._serviceMaintenanceService.getServiceMaintenance(this.serviceMaintenanceId)
             .pipe(takeUntil(this._unsubscribeAll)).subscribe((res => {
             this.serviceMaintenance = res;
             this.loadRating();
+            this.loadServiceMaintenanceFeedbackMap();
             console.log('Service Maintenance', this.serviceMaintenance);
         }));
+    }
+    loadServiceMaintenanceFeedbackMap(): void {
+        this._serviceMaintenanceService.getServiceMaintenanceFeedbackMap(this.serviceMaintenanceId)
+            .pipe(takeUntil(this._unsubscribeAll)).subscribe((res => {
+                this.serviceMaintenanceFeedbackMapList = res;
+                console.log('Feedback', this.serviceMaintenanceFeedbackMapList);
+        }))
+    }
+
+    createFeedback(): void {
+        if (this.message !== '' && this.message !== null) {
+            if (this.currentUser !== null && this.currentUser !== undefined) {
+                const feedback = new Feedback();
+                feedback.content = this.message;
+                feedback.fio = this.currentUser.lastName + ' ' + this.currentUser.firstName;
+                this.creatFeedback(feedback);
+            } else {
+                if (this.fio !== '' && this.fio !== null) {
+                    const feedback = new Feedback();
+                    feedback.fio = this.fio;
+                    feedback.content = this.message;
+                    this.creatFeedback(feedback);
+                }
+            }
+        }
+    }
+
+    creatFeedback(feedback: Feedback): void {
+        this._serviceMaintenanceService.createFeedback(feedback).pipe(takeUntil(this._unsubscribeAll)).subscribe((res) => {
+            this.createServiceMaintenanceFeedbackMap(res);
+        });
+    }
+
+    createServiceMaintenanceFeedbackMap(feedback: Feedback): void {
+        const serviceMaintenanceFeedbackMap = new ServiceMaintenanceFeedbackMap();
+        serviceMaintenanceFeedbackMap.feedbackId = feedback.id;
+        serviceMaintenanceFeedbackMap.serviceMaintenanceId = this.serviceMaintenanceId;
+        this._serviceMaintenanceService.createServiceMaintenanceFeedbackMap(serviceMaintenanceFeedbackMap).pipe(takeUntil(this._unsubscribeAll)).subscribe((res) => {
+            console.log('Your comment was successfully saved');
+            this.loadServiceMaintenanceFeedbackMap();
+        });
     }
 
     loadRating(): void {

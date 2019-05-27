@@ -24,7 +24,9 @@
     <input placeholder="Почта" type="email" matInput [(ngModel)]="data.user.email">
   </mat-form-field>
   <mat-form-field>
-    <input placeholder="Телефон" type="text" matInput [(ngModel)]="data.user.phoneNumber">
+    <span matPrefix>+7 &nbsp;</span>
+    <input #PNumber maxlength="10" minlength="10" placeholder="Телефон" type="text" matInput [(ngModel)]="data.user.phoneNumber">
+    <mat-hint align="end">{{PNumber.value.length}} / 10</mat-hint>
   </mat-form-field>
   <mat-form-field>
     <mat-select placeholder="Роль" [(ngModel)]="data.user.roleId">

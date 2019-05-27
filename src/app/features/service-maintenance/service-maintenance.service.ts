@@ -4,6 +4,8 @@ import {Observable} from 'rxjs/Rx';
 import {map} from 'rxjs/operators';
 import {ServiceMaintenance} from '../../models/service-maintenance';
 import {Rating} from '../../models/rating';
+import {ServiceMaintenanceFeedbackMap} from '../../models/service-maintenance-feedback-map';
+import {Feedback} from '../../models/feedback';
 
 @Injectable()
 export class ServiceMaintenanceService {
@@ -19,10 +21,28 @@ export class ServiceMaintenanceService {
     private readonly CREATE_RATING = '/core/rating/create';
     private readonly UPDATE_RATING = '/core/rating/update';
     private readonly DELETE_RATING = '/core/rating/delete';
+    private readonly GET_ALL_FEEDBACK = '/core/serviceMaintenanceFeedbackMap';
+    private readonly CREATE_SERVICE_MAINTENANCE_FEEDBACK_MAP = '/core/serviceMaintenanceFeedbackMap/create';
+    private readonly CREATE_FEEDBACK = '/core/feedback/create';
 
     constructor(
         private _http: HttpClient
     ) { }
+    public getServiceMaintenanceFeedbackMap(service_id: number): Observable<any> {
+        return this._http.get(this.GET_ALL_FEEDBACK + '/' + service_id).pipe(map(res => {
+            return res;
+        }))
+    }
+    public createServiceMaintenanceFeedbackMap(serviceMaintenanceFeedbackMap: ServiceMaintenanceFeedbackMap): Observable<any> {
+        return this._http.post(this.CREATE_SERVICE_MAINTENANCE_FEEDBACK_MAP, serviceMaintenanceFeedbackMap).pipe(map(res => {
+            return res;
+        }));
+    }
+    public createFeedback(feedback: Feedback): Observable<any> {
+        return this._http.post(this.CREATE_FEEDBACK, feedback).pipe(map(res => {
+            return res;
+        }));
+    }
 
     public getAllUsers(): Observable<any> {
       return this._http.get(this.GET_ALL_USERS).pipe(map(res => {

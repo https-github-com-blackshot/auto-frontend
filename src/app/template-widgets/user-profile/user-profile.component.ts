@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {MatDialog} from '@angular/material';
 import {Subject} from 'rxjs/index';
 import {UserProfileService} from './user-profile.service';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-user-profile',
@@ -13,11 +14,13 @@ import {UserProfileService} from './user-profile.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit , OnDestroy {
-
-    users: Array<Users> = [];
     user: Users;
-
+    userId: string;
     private _unsubscribeAll: Subject<any>;
+    emailFormControl = new FormControl('', [
+        Validators.required,
+        Validators.email,
+    ]);
 
     constructor(
         private _userService: UserProfileService,
@@ -29,7 +32,12 @@ export class UserProfileComponent implements OnInit , OnDestroy {
     }
 
   ngOnInit() {
-      this.loadUsers();
+        this.userId = localStorage.getItem('current_user');
+        this.loadUser();
+
+      if (localStorage.getItem('role') !== 'ADMIN' && localStorage.getItem('role') !== 'USER' ) {
+          this._router.navigateByUrl('dashboard');
+      }
   }
 
     ngOnDestroy() {
@@ -37,22 +45,22 @@ export class UserProfileComponent implements OnInit , OnDestroy {
         this._unsubscribeAll.complete();
     }
 
-    loadUsers() {
-        this._userService.getAllUsers().pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-            this.users = res;
-            this.user = this.users[0];
-            // console.log(this.users)
+    loadUser() {
+        this._userService.getUserById(this.userId).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+            this.user = res;
+            console.log(this.user)
         })
     }
 
     editUser(user: Users): void {
         if (user != null) {
             this._userService.updateUser(user).subscribe(res => {
-                this.loadUsers();
+                this.loadUser();
             });
         }
 
     }
+
 
 
 

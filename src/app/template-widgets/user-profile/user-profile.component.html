@@ -1,7 +1,4 @@
 <div class="main-content">
-
-
-
         <mat-tab-group>
             <mat-tab label="Пользователь">
                       <div class="col-md-8" style="margin-top: 30px;" class="100%;">
@@ -20,32 +17,44 @@
                                           </div>
                                           <div class="col-md-6">
                                               <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="Email address" type="email" [(ngModel)]="user.email" name="email">
+                                                <input matInput type="email" placeholder="Email address" [(ngModel)]="user.email" name="email" [formControl]="emailFormControl">
+                                                  <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                                      Please enter a valid email address
+                                                  </mat-error>
+                                                  <mat-error *ngIf="emailFormControl.hasError('required')">
+                                                      Email is <strong>required</strong>
+                                                  </mat-error>
+
                                               </mat-form-field>
                                           </div>
                                       </div>
                                       <div class="row">
                                           <div class="col-md-6">
                                             <mat-form-field class="example-full-width">
-                                              <input matInput placeholder="Fist Name" type="text" maxlength="64" [(ngModel)]="user.firstName" name="firstName">
+                                              <input matInput #FirstName maxlength="64" placeholder="Fist Name" type="text" [(ngModel)]="user.firstName" name="firstName">
+                                              <mat-hint align="end">{{FirstName.value.length}} / 64</mat-hint>
                                             </mat-form-field>
                                           </div>
                                           <div class="col-md-6">
                                             <mat-form-field class="example-full-width">
-                                              <input matInput placeholder="Last Name" type="text" maxlength="64" [(ngModel)]="user.lastName" name="lastName">
+                                              <input matInput #LastName maxlength="64" placeholder="Last Name" type="text" [(ngModel)]="user.lastName" name="lastName">
+                                              <mat-hint align="end">{{LastName.value.length}} / 64</mat-hint>
                                             </mat-form-field>
                                           </div>
                                       </div>
                                       <div class="row">
                                           <div class="col-md-6">
                                             <mat-form-field class="example-full-width">
-                                              <input matInput placeholder="Middle name" type="text" maxlength="64" [(ngModel)]="user.middleName" name="middleName">
+                                              <input matInput #MidName maxlength="64" placeholder="Middle name" type="text" [(ngModel)]="user.middleName" name="middleName">
+                                              <mat-hint align="end">{{MidName.value.length}} / 64</mat-hint>
                                             </mat-form-field>
                                           </div>
 
                                           <div class="col-md-6">
                                               <mat-form-field class="example-full-width">
-                                                  <input matInput placeholder="Phone number" type="number" [(ngModel)]="user.phoneNumber" name="phoneNumber">
+                                                  <span matPrefix>+7 &nbsp;</span>
+                                                  <input type="tel" matInput #PhoneNumber maxlength="10" minlength="10" placeholder="Phone number" [(ngModel)]="user.phoneNumber" name="phoneNumber">
+                                                  <mat-hint align="end">{{PhoneNumber.value.length}} / 10</mat-hint>
                                               </mat-form-field>
                                           </div>
 
@@ -60,10 +69,6 @@
                           </div>
                       </div>
             </mat-tab>
-
-
-
-
             <mat-tab label="Сервисная книжка">
                 <app-service-book></app-service-book>
             </mat-tab>

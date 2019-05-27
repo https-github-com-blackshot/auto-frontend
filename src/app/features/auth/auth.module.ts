@@ -15,6 +15,7 @@ import {AdminLayoutRoutes} from '../../template-widgets/layouts/admin-layout/adm
 import { AuthFormComponent } from './auth-form/auth-form.component';
 import {HttpClientModule} from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
     imports: [
@@ -24,7 +25,8 @@ import { HttpModule } from '@angular/http';
         FormsModule
     ],
     declarations: [
-        AuthFormComponent
+        AuthFormComponent,
+        RegistrationComponent
     ],
     providers: [AuthService],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],

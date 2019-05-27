@@ -13,8 +13,7 @@ import {Users} from '../../../../models/users';
   styleUrls: ['./service-book.component.scss']
 })
 export class ServiceBookComponent implements OnInit, OnDestroy {
-
-    users: Array<Users> = [];
+    userId: string;
     user: Users;
 
     serviceBook: Array<ServiceBook> = [];
@@ -28,8 +27,9 @@ export class ServiceBookComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
+      this.userId = localStorage.getItem('current_user');
       this.loadServiceBook();
-      this.loadUsers();
+      this.loadUser();
   }
   ngOnDestroy(): void {}
     loadServiceBook() {
@@ -38,12 +38,10 @@ export class ServiceBookComponent implements OnInit, OnDestroy {
             console.log('service book', this.serviceBook);
         })
     }
-    loadUsers() {
-        this._userService.getAllUsers().pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-            this.users = res;
-            this.user = this.users[0];
-            // console.log(this.users)
+    loadUser() {
+        this._userService.getUserById(this.userId).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+            this.user = res;
+            console.log(this.user)
         })
     }
-
 }

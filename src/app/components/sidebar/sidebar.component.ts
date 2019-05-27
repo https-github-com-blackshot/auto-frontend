@@ -32,6 +32,11 @@ export const USER_ROUTES: RouteInfo[] = [
     // { path: '/upgrade', title: 'Upgrade to PRO',  icon: 'unarchive', class: 'active-pro' },
 ];
 
+export const SIMPLE_USER_ROUTES: RouteInfo[] = [
+    { path: '/dashboard', title: 'Рабочая область',  icon: 'dashboard', class: '' },
+    { path: '/service_maintenance', title: 'СТО', icon: 'build', class: ''}
+];
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -45,8 +50,10 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
     if (localStorage.getItem('role') === 'ADMIN') {
         this.menuItems = ADMIN_ROUTES.filter(menuItem => menuItem);
-    } else {
+    } else if (localStorage.getItem('role') === 'USER') {
         this.menuItems = USER_ROUTES.filter(menuItem => menuItem);
+    } else {
+        this.menuItems = SIMPLE_USER_ROUTES.filter(menuItem => menuItem);
     }
 
   }

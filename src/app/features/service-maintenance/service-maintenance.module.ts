@@ -6,7 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { ServiceMaintenanceComponent } from './service-maintenance.component';
 import {ServiceMaintenanceService} from './service-maintenance.service';
 import {ServiceMaintenanceRoutingModule} from './service-maintenance-routing.module';
-import {MatButtonModule, MatCardModule, MatIconModule, MatInputModule, MatTabsModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatTabsModule} from '@angular/material';
 import {ServiceMaintenanceDetailComponent} from './components/service-maintenance-detail/service-maintenance-detail.component';
 import { ServiceMaintenanceControlComponent } from './components/service-maintenance-control/service-maintenance-control.component';
 
@@ -20,7 +20,9 @@ import { ServiceMaintenanceControlComponent } from './components/service-mainten
     MatButtonModule,
     MatIconModule,
     MatInputModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule,
+    MatFormFieldModule,
   ],
   declarations: [ServiceMaintenanceComponent, ServiceMaintenanceDetailComponent, ServiceMaintenanceControlComponent],
   providers: [ServiceMaintenanceService],
