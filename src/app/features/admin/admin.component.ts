@@ -16,7 +16,9 @@ export class AdminComponent implements OnInit, OnDestroy {
         private _adminService: AdminService,
         private _route: ActivatedRoute,
         private _router: Router
-    ) {}
+    ) {
+        this._unsubscribeAll = new Subject();
+    }
 
     ngOnInit() {
         if (localStorage.getItem('role') !== 'ADMIN') {
@@ -25,7 +27,8 @@ export class AdminComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-
+        this._unsubscribeAll.next();
+        this._unsubscribeAll.complete();
     }
 
 }

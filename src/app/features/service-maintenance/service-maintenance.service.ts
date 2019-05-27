@@ -25,14 +25,24 @@ export class ServiceMaintenanceService {
     private readonly CREATE_SERVICE_MAINTENANCE_FEEDBACK_MAP = '/core/serviceMaintenanceFeedbackMap/create';
     private readonly CREATE_FEEDBACK = '/core/feedback/create';
 
+    private readonly GET_ALL_FEEDBACKS = '/core/feedback/read';
+
     constructor(
         private _http: HttpClient
     ) { }
+
+    public getAllFeedbacks(): Observable<any> {
+        return this._http.get(this.GET_ALL_FEEDBACKS).pipe(map(res => {
+            return res;
+        }))
+    }
+
     public getServiceMaintenanceFeedbackMap(service_id: number): Observable<any> {
         return this._http.get(this.GET_ALL_FEEDBACK + '/' + service_id).pipe(map(res => {
             return res;
         }))
     }
+
     public createServiceMaintenanceFeedbackMap(serviceMaintenanceFeedbackMap: ServiceMaintenanceFeedbackMap): Observable<any> {
         return this._http.post(this.CREATE_SERVICE_MAINTENANCE_FEEDBACK_MAP, serviceMaintenanceFeedbackMap).pipe(map(res => {
             return res;
