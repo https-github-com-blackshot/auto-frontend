@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { ROUTES } from '../sidebar/sidebar.component';
+import { ADMIN_ROUTES } from '../sidebar/sidebar.component';
+import { USER_ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -14,14 +15,20 @@ export class NavbarComponent implements OnInit {
       mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
+    current_user: any;
 
     constructor(location: Location,  private element: ElementRef, private router: Router) {
       this.location = location;
           this.sidebarVisible = false;
     }
 
-    ngOnInit(){
-      this.listTitles = ROUTES.filter(listTitle => listTitle);
+    ngOnInit() {
+        this.current_user = localStorage.getItem('current_user');
+      if (localStorage.getItem('role') === 'ADMIN') {
+          this.listTitles = ADMIN_ROUTES.filter(listTitle => listTitle);
+      } else {
+          this.listTitles = USER_ROUTES.filter(listTitle => listTitle);
+      }
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
       this.router.events.subscribe((event) => {
@@ -32,6 +39,11 @@ export class NavbarComponent implements OnInit {
            this.mobile_menu_visible = 0;
          }
      });
+    }
+
+    clearStorage(): void {
+        localStorage.removeItem('role');
+        localStorage.removeItem('current_user');
     }
 
     sidebarOpen() {

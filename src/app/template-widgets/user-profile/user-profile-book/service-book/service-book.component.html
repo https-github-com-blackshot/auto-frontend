@@ -1,0 +1,35 @@
+
+  <div class="col-md-8" class="width:100%;">
+    <div class="card">
+      <div class="card-header card-header-danger">
+        <h4 class="card-title">Сервисная Книжка</h4>
+        <p class="card-category">Сервисы</p>
+      </div>
+      <div class="card-body">
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary">
+            <th>№</th>
+            <th>Наименование транспорта</th>
+            <th>Код</th>
+            <th>User Name</th>
+            <th>
+              <button (click)="addServiceBook()" mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+                <mat-icon>person_add</mat-icon>
+              </button>
+            </th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let service of serviceBook; let i = index; ">
+              <td *ngIf = " user.id == service.userId">{{i+1}}</td>
+              <td *ngIf = " user.id == service.userId">{{service.name}}  </td>
+              <td *ngIf = " user.id == service.userId">{{service.code}}</td>
+              <td *ngIf = " user.id == service.userId">{{service.user.lastName}} {{service.user.firstName}} {{service.user.middleName}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
