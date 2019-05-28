@@ -1,0 +1,55 @@
+.service_image{
+  width: 200px;
+  height: 150px;
+  float: left;
+}
+
+.content{
+
+  margin-left: 10px;
+
+  .rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    cursor: pointer;
+  }
+  .rating > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+  }
+  .rating > span:hover:before,
+  .rating > span:hover ~ span:before {
+    content: "\2605";
+    color: orange;
+    position: absolute;
+  }
+
+}
+
+.selected{
+  content: "\2605";
+  color: orange;
+  position: absolute;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+.example-card {
+  max-width: 99.5%;
+}
+
+.example-header-image {
+  background-image: url('https://pp.userapi.com/c834203/v834203119/b5e1c/g_e2Y5s7q8Q.jpg');
+  background-size: cover;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}

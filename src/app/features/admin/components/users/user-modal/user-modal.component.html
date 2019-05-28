@@ -1,0 +1,42 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+  <mat-form-field class="outline">
+    <input placeholder="Имя пользователя" type="text" matInput [(ngModel)]="data.user.username">
+  </mat-form-field>
+  <mat-form-field>
+    <input placeholder="Пароль" type="password" matInput [(ngModel)]="data.user.password">
+  </mat-form-field>
+  <mat-form-field>
+    <input placeholder="Имя" type="text" matInput [(ngModel)]="data.user.firstName">
+  </mat-form-field>
+  <mat-form-field>
+    <input placeholder="Фамилия" type="text" matInput [(ngModel)]="data.user.lastName">
+  </mat-form-field>
+  <mat-form-field>
+    <input placeholder="Отчество" type="text" matInput [(ngModel)]="data.user.middleName">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="data.user.birthDate" placeholder="Дата рождения">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <input placeholder="Почта" type="email" matInput [(ngModel)]="data.user.email">
+  </mat-form-field>
+  <mat-form-field>
+    <span matPrefix>+7 &nbsp;</span>
+    <input #PNumber maxlength="10" minlength="10" placeholder="Телефон" type="text" matInput [(ngModel)]="data.user.phoneNumber">
+    <mat-hint align="end">{{PNumber.value.length}} / 10</mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Роль" [(ngModel)]="userRoleMap.roleId">
+      <mat-option *ngFor="let role of data.roles" [value]="role.id">
+        {{role.nameRu}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Закрыть</button>
+  <button mat-button (click)="save()" cdkFocusInitial>Сохранить</button>
+</div>

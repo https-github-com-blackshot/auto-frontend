@@ -7,15 +7,23 @@ declare interface RouteInfo {
     icon: string;
     class: string;
 }
-export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-    { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
-    { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
-    { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
-    { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
-    { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
-    { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
-    { path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
+export const ADMIN_ROUTES: RouteInfo[] = [
+    { path: '/dashboard', title: 'Рабочая область',  icon: 'dashboard', class: '' },
+    { path: '/user-profile', title: 'Профиль пользователя',  icon: 'person', class: '' },
+    { path: '/admin', title: 'Администрирование', icon: 'group_add', class: ''},
+    { path: '/service_maintenance', title: 'СТО', icon: 'build', class: ''}
+];
+
+export const USER_ROUTES: RouteInfo[] = [
+    { path: '/dashboard', title: 'Рабочая область',  icon: 'dashboard', class: '' },
+    { path: '/user-profile', title: 'Профиль пользователя',  icon: 'person', class: '' },
+    { path: '/service_maintenance', title: 'СТО', icon: 'build', class: ''}
+];
+
+export const SIMPLE_USER_ROUTES: RouteInfo[] = [
+    { path: '/dashboard', title: 'Рабочая область',  icon: 'dashboard', class: '' },
+    { path: '/service_maintenance', title: 'СТО', icon: 'build', class: ''},
+    { path: '/auth/registration', title: 'Регистрация',  icon: 'person', class: '' },
 ];
 
 @Component({
@@ -29,7 +37,14 @@ export class SidebarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+    if (localStorage.getItem('role') === 'ADMIN') {
+        this.menuItems = ADMIN_ROUTES.filter(menuItem => menuItem);
+    } else if (localStorage.getItem('role') === 'USER') {
+        this.menuItems = USER_ROUTES.filter(menuItem => menuItem);
+    } else {
+        this.menuItems = SIMPLE_USER_ROUTES.filter(menuItem => menuItem);
+    }
+
   }
   isMobileMenu() {
       if ($(window).width() > 991) {

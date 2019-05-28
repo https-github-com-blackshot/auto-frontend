@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="/service-maintenance.component.scss">
+<div class="main-content">
+    <div class="w3-container">
+
+        <!--<button (click)="addNewService()" mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">-->
+            <!--<mat-icon>add</mat-icon>-->
+            <!--Добавить СТО-->
+        <!--</button>-->
+
+
+        <mat-tab-group>
+            <mat-tab label="Список СТО">
+                <div *ngFor="let s of serviceMaintenanceList; let i = index;" class="w3-card-4" style="width:100%">
+                    <header class="w3-container w3-light-grey">
+                        <h3>{{s.name}}</h3>
+                    </header>
+                    <div class="w3-container">
+
+                        <div class="rating">
+                            <span *ngIf="overallRating >= 5" style="color: orange;" (click)="giveRating(5)">☆</span>
+                            <span *ngIf="overallRating < 5" (click)="giveRating(5)">☆</span>
+                            <span *ngIf="overallRating >= 4" style="color: orange;" (click)="giveRating(4)">☆</span>
+                            <span *ngIf="overallRating < 4" (click)="giveRating(4)">☆</span>
+                            <span *ngIf="overallRating >= 3" style="color: orange;" (click)="giveRating(3)">☆</span>
+                            <span *ngIf="overallRating < 3" (click)="giveRating(3)">☆</span>
+                            <span *ngIf="overallRating >= 2" style="color: orange;" (click)="giveRating(2)">☆</span>
+                            <span *ngIf="overallRating < 2" (click)="giveRating(2)">☆</span>
+                            <span *ngIf="overallRating >= 1" style="color: orange;" (click)="giveRating(1)">☆</span>
+                            <span *ngIf="overallRating < 1" (click)="giveRating(1)">☆</span>
+                        </div>
+
+
+                        <img src="http://сто-тяга.рф/wp-content/uploads/2018/07/glav.jpg" alt="Avatar"
+                             class="w3-left w3-circle w3-margin-right" style="width:80px">
+
+                        <p style="overflow: hidden;">{{s.description}}</p><br>
+                        <p>{{s.address}}</p>
+                    </div>
+                    <button mat-raised-button class="btn btn-danger" (click)="view(s.id)">Посмотреть полную информацию</button>
+                </div>
+            </mat-tab>
+            <mat-tab *ngIf="role === 'ADMIN'" label="Добавить СТО">
+                <app-service-maintenance-control></app-service-maintenance-control>
+            </mat-tab>
+        </mat-tab-group>
+
+
+
+    </div>
+</div>
