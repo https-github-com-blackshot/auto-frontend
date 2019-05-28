@@ -67,7 +67,8 @@
             <mat-card-header>
                 <div mat-card-avatar class="example-header-image"></div>
                 <mat-card-title>{{feed.feedback.fio}}</mat-card-title>
-                <mat-card-subtitle class="example-right-align">{{feed.feedback.appliedDate}}</mat-card-subtitle>
+                <mat-card-subtitle class="example-right-align" *ngIf="feed.feedback.appliedDate">{{feed.feedback.appliedDate | date: 'dd-MM-yyyy'}}</mat-card-subtitle>
+                <mat-card-subtitle class="example-right-align" *ngIf="!feed.feedback.appliedDate">28-05-2019</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 {{feed.feedback.content}}

@@ -1,9 +1,10 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {ServiceMaintenance} from '../../../../models/service-maintenance';
 import {Subject} from 'rxjs';
 import {ServiceMaintenanceService} from '../../service-maintenance.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {takeUntil} from 'rxjs/operators';
+import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material';
 
 @Component({
   selector: 'app-service-maintenance-control',
@@ -12,13 +13,20 @@ import {takeUntil} from 'rxjs/operators';
 })
 export class ServiceMaintenanceControlComponent implements OnInit, OnDestroy {
 
-    @Input() serviceMaintenance: ServiceMaintenance;
+    @Output() public myOutput = new EventEmitter();
+
+    serviceMaintenance: ServiceMaintenance;
+
+    horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+    verticalPosition: MatSnackBarVerticalPosition = 'top';
 
     private _unsubscribeAll: Subject<any>;
 
     constructor(
         private _serviceMaintenanceService: ServiceMaintenanceService,
-        private _route: ActivatedRoute
+        private _route: ActivatedRoute,
+        private router: Router,
+        private _snackBar: MatSnackBar
     ) {
         this._unsubscribeAll = new Subject();
     }
@@ -36,6 +44,12 @@ export class ServiceMaintenanceControlComponent implements OnInit, OnDestroy {
         this._unsubscribeAll.complete();
     }
 
+    public buttonClick(): void {
+
+        this.myOutput.emit(true);
+
+    }
+
     // loadServiceMaintenance(): void {
     //   this._serviceMaintenanceService.getServiceMaintenance(this.serviceMaintenanceId)
     //       .pipe(takeUntil(this._unsubscribeAll)).subscribe((res) => {
@@ -45,10 +59,19 @@ export class ServiceMaintenanceControlComponent implements OnInit, OnDestroy {
     // }
 
     create(): void {
-        this.serviceMaintenance.ratingId = 1;
         this._serviceMaintenanceService.createServiceMaintenance(this.serviceMaintenance)
             .pipe(takeUntil(this._unsubscribeAll)).subscribe((res) => {
+            this.openSnackBar('Данные успешно сохранены!');
+            this.serviceMaintenance = new ServiceMaintenance();
             console.log('res', res);
+        });
+    }
+
+    openSnackBar(message: string) {
+        this._snackBar.open(message, '', {
+            duration: 2000,
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
         });
     }
 
