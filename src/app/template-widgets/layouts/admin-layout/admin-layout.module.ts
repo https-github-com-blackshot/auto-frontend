@@ -46,7 +46,7 @@ import {RoleModalComponent} from '../../../features/admin/components/roles/role-
         MatTabsModule,
         MatIconModule,
         ReactiveFormsModule,
-        MatListModule
+        MatListModule,
         MatDialogModule,
     ],
     declarations: [
