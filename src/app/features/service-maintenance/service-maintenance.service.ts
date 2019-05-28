@@ -12,6 +12,7 @@ export class ServiceMaintenanceService {
 
     private readonly GET_ALL_USERS = 'core/users/read';
     private readonly GET_ALL_SERVICE_MAINTENANCE = 'core/serviceMaintenance/read';
+    private readonly SEARCH_SERVICE_MAINTENANCE = 'core/serviceMaintenance/search';
     private readonly GET_SERVICE_MAINTENANCE = 'core/serviceMaintenance';
     private readonly CREATE_SERVICE_MAINTENANCE = 'core/serviceMaintenance/create';
     private readonly UPDATE_SERVICE_MAINTENANCE = 'core/serviceMaintenance/update';
@@ -62,6 +63,12 @@ export class ServiceMaintenanceService {
 
     public getAllServiceMaintenance(): Observable<any> {
         return this._http.get(this.GET_ALL_SERVICE_MAINTENANCE).pipe(map(res => {
+            return res;
+        }));
+    }
+
+    public searchServiceMaintenance(name: string): Observable<any> {
+        return this._http.get(this.SEARCH_SERVICE_MAINTENANCE + '/' + name).pipe(map(res => {
             return res;
         }));
     }

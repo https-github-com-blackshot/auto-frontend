@@ -19,7 +19,7 @@ import {
     MatRippleModule,
     MatFormFieldModule,
     MatTooltipModule,
-    MatSelectModule, MatTabsModule, MatIconModule,
+    MatSelectModule, MatTabsModule, MatIconModule, MatListModule,
 } from '@angular/material';
 import {AdminModule} from '../../../features/admin/admin.module';
 import {ServiceMaintenanceModule} from '../../../features/service-maintenance/service-maintenance.module';
@@ -42,6 +42,7 @@ import {ServiceBookComponent} from '../../user-profile/user-profile-book/service
         MatTabsModule,
         MatIconModule,
         ReactiveFormsModule,
+        MatListModule
     ],
     declarations: [
         DashboardComponent,

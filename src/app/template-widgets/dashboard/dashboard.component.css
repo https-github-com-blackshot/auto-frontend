@@ -24,3 +24,8 @@ html {
     color: dodgerblue;
 
 }
+
+.list-item:hover{
+    cursor: pointer;
+    background: #f44336;
+}
