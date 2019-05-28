@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -20,11 +20,15 @@ import {
     MatFormFieldModule,
     MatTooltipModule,
     MatSelectModule, MatTabsModule, MatIconModule, MatListModule,
+    MatDialogModule, MatDatepickerModule, MatNativeDateModule,
 } from '@angular/material';
 import {AdminModule} from '../../../features/admin/admin.module';
 import {ServiceMaintenanceModule} from '../../../features/service-maintenance/service-maintenance.module';
 import {UserProfileService} from '../../user-profile/user-profile.service';
 import {ServiceBookComponent} from '../../user-profile/user-profile-book/service-book/service-book.component';
+import {AddNewServiceBookComponent} from '../../user-profile/user-profile-book/service-book/add-new-service-book/add-new-service-book.component';
+import {UserModalComponent} from '../../../features/admin/components/users/user-modal/user-modal.component';
+import {RoleModalComponent} from '../../../features/admin/components/roles/role-modal/role-modal.component';
 
 @NgModule({
     imports: [
@@ -43,6 +47,7 @@ import {ServiceBookComponent} from '../../user-profile/user-profile-book/service
         MatIconModule,
         ReactiveFormsModule,
         MatListModule
+        MatDialogModule,
     ],
     declarations: [
         DashboardComponent,
@@ -53,9 +58,12 @@ import {ServiceBookComponent} from '../../user-profile/user-profile-book/service
         MapsComponent,
         NotificationsComponent,
         UpgradeComponent,
-        ServiceBookComponent
+        ServiceBookComponent,
+        AddNewServiceBookComponent,
     ],
-    providers: [UserProfileService]
+    providers: [UserProfileService],
+    entryComponents: [AddNewServiceBookComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 
 export class AdminLayoutModule {

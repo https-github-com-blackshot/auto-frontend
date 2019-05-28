@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+  <mat-form-field class="outline">
+    <input placeholder="Код" type="text" matInput [(ngModel)]="data.serviceBoo.code">
+  </mat-form-field>
+  <mat-form-field>
+    <input placeholder="Наименование" type="text" matInput [(ngModel)]="data.serviceBoo.name">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Пользователь" [(ngModel)]="data.serviceBoo.userId">
+      <mat-option *ngFor="let use of users" [value]="use.id">
+        {{use.lastName}} {{use.firstName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Закрыть</button>
+  <button mat-button [mat-dialog-close]="data.user" cdkFocusInitial>Сохранить</button>
+</div>
