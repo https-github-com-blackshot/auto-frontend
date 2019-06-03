@@ -25,11 +25,11 @@
                 <td>{{role.code}}</td>
                 <td>{{role.nameRu}}</td>
                 <td>
-                  <button (click)="editRole(user)" mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+                  <button (click)="editRole(role)" mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
                     <mat-icon>edit</mat-icon>
                   </button>
 
-                  <button (click)="deleteRole(user.id)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+                  <button (click)="deleteRole(role.id)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
                     <mat-icon>delete</mat-icon>
                   </button>
                 </td>

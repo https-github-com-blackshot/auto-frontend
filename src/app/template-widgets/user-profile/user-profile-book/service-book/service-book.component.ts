@@ -55,6 +55,7 @@ export class ServiceBookComponent implements OnInit, OnDestroy {
             console.log('The dialog was closed');
             console.log('result', result);
             if (result !== null && result !== undefined) {
+                result.userId = this.user.id;
                 this._userService.addServiceBook(result).pipe().subscribe(res => {
                     this.loadServiceBook();
                 });

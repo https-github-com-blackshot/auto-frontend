@@ -19,7 +19,8 @@ import {
     MatRippleModule,
     MatFormFieldModule,
     MatTooltipModule,
-    MatSelectModule, MatTabsModule, MatIconModule, MatDialogModule, MatDatepickerModule, MatNativeDateModule,
+    MatSelectModule, MatTabsModule, MatIconModule, MatListModule,
+    MatDialogModule, MatDatepickerModule, MatNativeDateModule,
 } from '@angular/material';
 import {AdminModule} from '../../../features/admin/admin.module';
 import {ServiceMaintenanceModule} from '../../../features/service-maintenance/service-maintenance.module';
@@ -45,6 +46,7 @@ import {RoleModalComponent} from '../../../features/admin/components/roles/role-
         MatTabsModule,
         MatIconModule,
         ReactiveFormsModule,
+        MatListModule,
         MatDialogModule,
     ],
     declarations: [

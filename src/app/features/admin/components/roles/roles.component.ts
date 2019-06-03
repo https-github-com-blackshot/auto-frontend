@@ -49,7 +49,7 @@ export class RolesComponent implements OnInit, OnDestroy {
         const dialogRef = this._dialog.open(RoleModalComponent, {
             width: '450px',
             data: {
-                title: 'Добавление ново роли',
+                title: 'Добавление новой роли',
                 role: new Roles()
             }
         });
@@ -70,7 +70,7 @@ export class RolesComponent implements OnInit, OnDestroy {
             width: '450px',
             data: {
                 title: 'Изменение данных роли',
-                user: role
+                role: role
             }
         });
 

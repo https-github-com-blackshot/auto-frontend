@@ -7,6 +7,7 @@ import {takeUntil} from 'rxjs/operators';
 import {MatDialog} from '@angular/material';
 import {UserModalComponent} from './user-modal/user-modal.component';
 import {Roles} from '../../../../models/roles';
+import {UsersRolesMap} from '../../../../models/users-roles-map';
 
 @Component({
     selector: 'app-users',
@@ -49,6 +50,7 @@ export class UsersComponent implements OnInit, OnDestroy {
     loadRoles() {
         this._adminService.getAllRoles().pipe(takeUntil(this._unsubscribeAll)).subscribe((res) => {
             this.roles = res;
+            console.log('roles', this.roles);
         });
     }
 
@@ -65,8 +67,15 @@ export class UsersComponent implements OnInit, OnDestroy {
         dialogRef.afterClosed().subscribe(result => {
             console.log('The dialog was closed');
             console.log('result', result);
-            if (result !== null && result !== undefined) {
-                this._adminService.createUser(result).subscribe(res => {
+            if (result.user !== null && result.user !== undefined) {
+                this._adminService.createUser(result.user).subscribe(res => {
+                    const userRoleMap = new UsersRolesMap();
+                    userRoleMap.userId = res.id;
+                    userRoleMap.roleId = result.userRoleMap.roleId;
+                    this._adminService.createUserRoleMap(userRoleMap)
+                        .pipe(takeUntil(this._unsubscribeAll)).subscribe((res1) => {
+                       console.log('saved');
+                    });
                     this.loadUsers();
                 });
             }
@@ -87,7 +96,15 @@ export class UsersComponent implements OnInit, OnDestroy {
             console.log('The dialog was closed');
             console.log('result', result);
             if (result !== null && result !== undefined) {
-                this._adminService.updateUser(result).subscribe(res => {
+                this._adminService.updateUser(result.user).subscribe(res => {
+                    const userRoleMap = new UsersRolesMap();
+                    userRoleMap.id = result.userRoleMap.id;
+                    userRoleMap.userId = result.user.id;
+                    userRoleMap.roleId = result.userRoleMap.roleId;
+                    this._adminService.updateUserRoleMap(userRoleMap)
+                        .pipe(takeUntil(this._unsubscribeAll)).subscribe((res1) => {
+                        console.log('saved');
+                    });
                     this.loadUsers();
                 });
             }
@@ -95,8 +112,14 @@ export class UsersComponent implements OnInit, OnDestroy {
     }
 
     deleteUser(userId: number): void {
-        this._adminService.deleteUser(userId).subscribe(res => {
-            this.loadUsers();
+        this._adminService.getUserRoleMapByUserId(userId)
+            .pipe(takeUntil(this._unsubscribeAll)).subscribe((res) => {
+                const userRoleMap = res;
+                this._adminService.deleteUserRoleMap(userRoleMap.id).subscribe((res1) => {
+                    this._adminService.deleteUser(userId).subscribe(res2 => {
+                        this.loadUsers();
+                    });
+                });
         });
     }
 

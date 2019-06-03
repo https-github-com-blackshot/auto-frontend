@@ -22,6 +22,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
     serviceBookList: ServiceBook[] = [];
     feedbackList: Feedback[] = [];
 
+    serviceMaintenanceListToShow: ServiceMaintenance[] = [];
+
+    searchString: string;
+    searchClicked: boolean;
+
     private _unsubscribeAll: Subject<any>;
 
     constructor(
@@ -34,13 +39,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        if (localStorage.getItem('role') !== 'ADMIN') {
-            this._router.navigateByUrl('dashboard');
-        } else {
-            this.loadAllServiceMaintenance();
-            this.loadAllServiceBooks();
-            this.loadAllFeedbacks();
-        }
+        this.searchClicked = false;
+        this.loadAllServiceMaintenance();
+        this.loadAllServiceBooks();
+        this.loadAllFeedbacks();
+
     }
 
     ngOnDestroy(): void {
@@ -50,7 +53,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     loadAllServiceMaintenance(): void {
         this._serviceMaintenanceService.getAllServiceMaintenance().pipe(takeUntil(this._unsubscribeAll)).subscribe((res) => {
-           this.serviceMaintenanceList = res;
+            this.serviceMaintenanceList = res;
         });
     }
 
@@ -64,6 +67,18 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this._serviceMaintenanceService.getAllFeedbacks().pipe(takeUntil(this._unsubscribeAll)).subscribe((res) => {
             this.feedbackList = res;
         });
+    }
+
+    search(): void {
+        this.searchClicked = true;
+        this._serviceMaintenanceService.searchServiceMaintenance(this.searchString)
+            .pipe(takeUntil(this._unsubscribeAll)).subscribe((res) => {
+            this.serviceMaintenanceListToShow = res;
+        });
+    }
+
+    viewDetail(id: number): void {
+        this._router.navigateByUrl('service_maintenance/' + id);
     }
 
     // startAnimationForLineChart(chart) {
