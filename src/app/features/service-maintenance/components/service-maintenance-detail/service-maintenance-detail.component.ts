@@ -7,7 +7,7 @@ import {ServiceMaintenance} from '../../../../models/service-maintenance';
 import {Rating} from '../../../../models/rating';
 import {Feedback} from '../../../../models/feedback';
 import {ServiceMaintenanceFeedbackMap} from '../../../../models/service-maintenance-feedback-map';
-import {Users} from '../../../../models/users';
+import {Users} from '../../../../../../../../red-resume/frontend-red-resume/src/models/users';
 import {UserProfileService} from '../../../../template-widgets/user-profile/user-profile.service';
 
 @Component({

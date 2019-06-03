@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {Users} from '../../models/users';
+import {Users} from '../../../../../../red-resume/frontend-red-resume/src/models/users';
 import {Roles} from '../../models/roles';
 import {ServiceBook} from '../../models/service-book';
 

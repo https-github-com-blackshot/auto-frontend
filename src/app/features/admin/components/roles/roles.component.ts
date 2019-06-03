@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Users} from '../../../../models/users';
+import {Users} from '../../../../../../../../red-resume/frontend-red-resume/src/models/users';
 import {Subject} from 'rxjs';
 import {AdminService} from '../../admin.service';
 import {MatDialog} from '@angular/material';

@@ -5,7 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Subject} from 'rxjs/index';
 import {MatDialog} from '@angular/material';
 import {UserProfileService} from '../../user-profile.service';
-import {Users} from '../../../../models/users';
+import {Users} from '../../../../../../../../red-resume/frontend-red-resume/src/models/users';
 import {UserModalComponent} from '../../../../features/admin/components/users/user-modal/user-modal.component';
 import {AddNewServiceBookComponent} from './add-new-service-book/add-new-service-book.component';
 

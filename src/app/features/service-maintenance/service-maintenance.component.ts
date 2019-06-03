@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from 'rxjs/index';
 import {ServiceMaintenanceService} from './service-maintenance.service';
 import {takeUntil} from 'rxjs/internal/operators';
-import {Users} from '../../models/users';
+import {Users} from '../../../../../../red-resume/frontend-red-resume/src/models/users';
 import {ServiceMaintenance} from '../../models/service-maintenance';
 import {RouterScroller} from '@angular/router/src/router_scroller';
 import {Router} from '@angular/router';

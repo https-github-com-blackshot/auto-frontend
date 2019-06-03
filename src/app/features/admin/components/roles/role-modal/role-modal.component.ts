@@ -1,7 +1,7 @@
 import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from 'rxjs';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {Users} from '../../../../../models/users';
+import {Users} from '../../../../../../../../../red-resume/frontend-red-resume/src/models/users';
 import {Roles} from '../../../../../models/roles';
 
 @Component({

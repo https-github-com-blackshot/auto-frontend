@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {takeUntil} from 'rxjs/operators';
-import {Users} from '../../models/users';
+import {Users} from '../../../../../../red-resume/frontend-red-resume/src/models/users';
 import {AdminService} from '../../features/admin/admin.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatDialog} from '@angular/material';

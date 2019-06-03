@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {Users} from '../../models/users';
+import {Users} from '../../../../../../red-resume/frontend-red-resume/src/models/users';
 
 @Injectable({
   providedIn: 'root'

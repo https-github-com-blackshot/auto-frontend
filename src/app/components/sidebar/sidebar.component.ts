@@ -8,10 +8,9 @@ declare interface RouteInfo {
     class: string;
 }
 export const ADMIN_ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Рабочая область',  icon: 'dashboard', class: '' },
-    { path: '/user-profile', title: 'Профиль пользователя',  icon: 'person', class: '' },
+    { path: '/user-profile', title: 'Студент',  icon: 'person', class: '' },
     { path: '/admin', title: 'Администрирование', icon: 'group_add', class: ''},
-    { path: '/service_maintenance', title: 'СТО', icon: 'build', class: ''}
+    { path: '/service_maintenance', title: 'Организация', icon: 'build', class: ''}
 ];
 
 export const USER_ROUTES: RouteInfo[] = [
@@ -42,7 +41,7 @@ export class SidebarComponent implements OnInit {
     } else if (localStorage.getItem('role') === 'USER') {
         this.menuItems = USER_ROUTES.filter(menuItem => menuItem);
     } else {
-        this.menuItems = SIMPLE_USER_ROUTES.filter(menuItem => menuItem);
+        this.menuItems = ADMIN_ROUTES.filter(menuItem => menuItem);
     }
 
   }

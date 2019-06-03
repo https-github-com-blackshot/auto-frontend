@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
 import {Router} from '@angular/router';
-import {Users} from '../../../models/users';
+import {Users} from '../../../../../../../red-resume/frontend-red-resume/src/models/users';
 import PerfectScrollbar from 'perfect-scrollbar';
 import {Location} from '@angular/common';
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material';

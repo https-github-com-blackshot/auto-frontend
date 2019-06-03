@@ -1,4 +1,4 @@
-import {Users} from './users';
+import {Users} from '../../../../../red-resume/frontend-red-resume/src/models/users';
 
 export class ServiceBook {
     constructor(

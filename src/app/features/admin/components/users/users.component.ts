@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from 'rxjs';
 import {AdminService} from '../../admin.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Users} from '../../../../models/users';
+import {Users} from '../../../../../../../../red-resume/frontend-red-resume/src/models/users';
 import {takeUntil} from 'rxjs/operators';
 import {MatDialog} from '@angular/material';
 import {UserModalComponent} from './user-modal/user-modal.component';
